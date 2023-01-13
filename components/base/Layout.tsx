@@ -15,7 +15,7 @@ export const Layout = ({ children, hideNavBar = false }: LayoutProps) => {
         {/* 2xl */}
         <VStack h="100%" w="100%">
           <NavigationBar hide={hideNavBar} />
-          <Box flexGrow={1}>
+          <Box w={`100vw`} flexGrow={1}>
             {children}
           </Box>
           <Box>
