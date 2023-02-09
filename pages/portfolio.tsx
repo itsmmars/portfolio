@@ -133,6 +133,7 @@ export default function Portfolio() {
         {gigs.map((g) => {
           return (
             <Card 
+              color={`#EAEAEA`}
               key={v4()}
               direction={{ base: 'column', sm: 'row' }}
               overflow='hidden'
