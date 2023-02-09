@@ -63,7 +63,7 @@ export const NavigationBar = ({ hide = false }: NavBarProps) => {
 
   return (
     <Flex 
-      w={`100vw`}
+      w={`100%`}
       p={`24px`}
       direction={[`column`, `row`]} 
       align={`center`} 
