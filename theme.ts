@@ -14,6 +14,9 @@ const theme = extendTheme({
         minHeight: `auto`,
         marginRight: `0`
       },
+      '.svg-filter': {
+        filter: `invert(93%) sepia(99%) saturate(1%) hue-rotate(222deg) brightness(106%) contrast(100%)`
+      }
     }
   }
 })

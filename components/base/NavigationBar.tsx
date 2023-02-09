@@ -50,6 +50,8 @@ export const NavigationBar = ({ hide = false }: NavBarProps) => {
             as={NextLink}
             href={l.external ? l.link : `/${l.name.toLowerCase()}`}
             isExternal={l.external}
+            textDecoration={`none`}
+            _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
           >
             <Text whiteSpace="nowrap">{l.name} {l.external ? <Icon as={FiArrowUpRight} /> : ``}</Text>
           </Link>
@@ -69,9 +71,15 @@ export const NavigationBar = ({ hide = false }: NavBarProps) => {
       backdropFilter={`blur(10px)`}
       borderBottom={`default`}>
       <Box flexGrow={1} w={[`unset`, `100%`]}>
-        <Link as={NextLink} href={`/`}>
+        <Link 
+          as={NextLink} 
+          href={`/`} 
+          textDecoration={`none`}
+          _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+        >
           <Heading>Mike Filicetti</Heading>
         </Link>
+        <Text casing={`uppercase`}>interesting developments llc</Text>
       </Box>
       <Box flexGrow={1} w={[`unset`, `100%`]}>
       
