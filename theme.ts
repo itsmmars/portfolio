@@ -7,6 +7,11 @@ const theme = extendTheme({
   },
   styles: {
     global: {
+      html: {
+        height: `100%`,
+        overflowY: `scroll`, // always show scrollbars
+        overflowX: `hidden`
+      },
       body: {
         height: `100%`,
         color: `#EAEAEA`,
