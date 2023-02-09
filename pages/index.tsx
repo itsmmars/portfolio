@@ -1,3 +1,14 @@
+import { 
+  Box, 
+  Container, 
+  Flex, 
+  Link, 
+  Stack, 
+  VStack, 
+  Image, 
+  Text,
+  Heading 
+} from '@chakra-ui/react'
 import Head from 'next/head'
 import { Layout } from '../components/base/Layout'
 
@@ -12,7 +23,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout hideNavBar={false}>
-        
+        <Container maxW="container.xl" centerContent px="0" h="calc(100% - 60px)">
+          <Flex 
+            direction="row" 
+            justify="center"
+            align="center"
+            w="100%"
+            textAlign="center"
+            m="auto"
+          >
+            <VStack justifyContent={`center`} spacing="20px">
+              <Heading variant={`small-caps`} size={`4xl`}>Mike Filicetti</Heading>
+              <Text fontSize={`xl`} fontWeight={700}>
+                Frontend Software Engineer | Product Manager | UI/UX Wizard
+              </Text>
+              <Text fontSize={`md`} pb={`10px`}>
+                Crafting seamless UI/UX solutions to drive your business forward.
+              </Text>
+            </VStack>
+          </Flex>
+        </Container>
       </Layout>
     </>
   )

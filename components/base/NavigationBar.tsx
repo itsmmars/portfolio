@@ -63,7 +63,7 @@ export const NavigationBar = ({ hide = false }: NavBarProps) => {
 
   return (
     <Flex 
-      w={`100vw`}
+      w={`100%`}
       p={`24px`}
       direction={[`column`, `row`]} 
       align={`center`} 
@@ -95,9 +95,10 @@ export const NavigationBar = ({ hide = false }: NavBarProps) => {
             <HStack mb={[`1rem`, `0rem`]} spacing={`20px`}>
               {mapLinks()}
             </HStack>
+            {/* TODO: add light/dark mode toggle
             <Box pr={`0.5rem`}>
               
-            </Box>
+            </Box> */}
           </Stack>
         </Box>
       )}
