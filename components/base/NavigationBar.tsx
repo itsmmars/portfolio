@@ -81,7 +81,7 @@ export const NavigationBar = ({ hide = false }: NavBarProps) => {
         </Link>
         <Text casing={`uppercase`}>interesting developments llc</Text>
       </Box>
-      <Box flexGrow={1} w={[`unset`, `100%`]}>
+      <Box flexGrow={1} h={`0.5rem`} w={[`unset`, `100%`]}>
       
       </Box>
       {!hide && (

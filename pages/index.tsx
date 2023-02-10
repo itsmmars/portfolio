@@ -34,10 +34,21 @@ export default function Home() {
           >
             <VStack justifyContent={`center`} spacing="20px">
               <Heading variant={`small-caps`} size={`4xl`}>Mike Filicetti</Heading>
-              <Text fontSize={`xl`} fontWeight={700}>
+              <Stack direction={['column', 'row']} spacing={[`1rem`, `3rem`]} fontSize={[`l`, `xl`]} fontWeight={700}>
+                <Box>
+                  Frontend Software Engineer
+                </Box>
+                <Box>
+                  Product Manager
+                </Box>
+                <Box>
+                  UI/UX Wizard
+                </Box>
+              </Stack>
+              {/* <Text fontSize={[`l`, `xl`]} fontWeight={700}>
                 Frontend Software Engineer | Product Manager | UI/UX Wizard
-              </Text>
-              <Text fontSize={`md`} pb={`10px`}>
+              </Text> */}
+              <Text fontSize={[`sm`, `md`]} py={[`3rem`, `1rem`]}>
                 Crafting seamless UI/UX solutions to drive your business forward.
               </Text>
             </VStack>

@@ -3,7 +3,7 @@ import { Box, Container, VStack } from '@chakra-ui/react'
 import { NavigationBar } from './NavigationBar'
 import { Footer } from './Footer'
 import { v4 } from 'uuid'
-import { isBrowser } from 'react-device-detect'
+
 
 type LayoutProps = {
   children: React.ReactNode
@@ -18,26 +18,25 @@ export const Layout = ({ children, hideNavBar = false }: LayoutProps) => {
   ]
 
   const handleBackground = () => {
-    if (isBrowser) {
-      return <>
-        {circles.map((c) => {
-          return (
-            <Box 
-              key={v4()}
-              zIndex={-1}
-              w={c.size} 
-              h={c.size} 
-              borderRadius={`500px`} 
-              position={`absolute`} 
-              left={c.left}
-              top={c.top}
-              backgroundColor={c.color}
-              filter={`blur(188px)`}
-            />
-          )
-        })}
-      </>
-    }
+    return <>
+      {circles.map((c) => {
+        return (
+          <Box 
+            key={v4()}
+            zIndex={-1}
+            w={c.size} 
+            h={c.size} 
+            borderRadius={`500px`} 
+            position={`fixed`} 
+            left={c.left}
+            top={c.top}
+            backgroundColor={c.color}
+            filter={`blur(188px)`}
+            suppressHydrationWarning={true}
+          />
+        )
+      })}
+    </>
   }
 
   return (

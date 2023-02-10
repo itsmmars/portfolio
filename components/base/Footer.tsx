@@ -26,7 +26,8 @@ const mapLinks = () => {
   return (
     <HStack 
       fontSize={`16px`} 
-      spacing={`20px`}>
+      spacing={`20px`}
+      my={`1rem`}>
       {links.map((l) => {
         return (
           <Link key={v4()} href={l.link} isExternal>
@@ -40,7 +41,7 @@ const mapLinks = () => {
 
 export const Footer = () => {
   return (
-    <VStack bottom="0" w="100%" justifyContent="right" spacing="12px">
+    <VStack bottom={`0`} w="100%" justifyContent="right" spacing="12px">
       <Text>Let&apos;s Connect</Text>
       {mapLinks()}
     </VStack>
