@@ -4,6 +4,7 @@ import { NavigationBar } from './NavigationBar'
 import { Footer } from './Footer'
 import { v4 } from 'uuid'
 
+
 type LayoutProps = {
   children: React.ReactNode
   hideNavBar?: boolean
@@ -26,11 +27,12 @@ export const Layout = ({ children, hideNavBar = false }: LayoutProps) => {
             w={c.size} 
             h={c.size} 
             borderRadius={`500px`} 
-            position={`absolute`} 
+            position={`fixed`} 
             left={c.left}
             top={c.top}
             backgroundColor={c.color}
             filter={`blur(188px)`}
+            suppressHydrationWarning={true}
           />
         )
       })}
