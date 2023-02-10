@@ -35,15 +35,15 @@ export default function Home() {
             <VStack justifyContent={`center`} spacing="20px">
               <Heading variant={`small-caps`} size={`4xl`}>Mike Filicetti</Heading>
               <Stack direction={['column', 'row']} spacing={[`1rem`, `3rem`]} fontSize={[`l`, `xl`]} fontWeight={700}>
-                <Box>
+                <Text flexWrap={`nowrap`}>
                   Frontend Software Engineer
-                </Box>
-                <Box>
+                </Text>
+                <Text flexWrap={`nowrap`}>
                   Product Manager
-                </Box>
-                <Box>
+                </Text>
+                <Text flexWrap={`nowrap`}>
                   UI/UX Wizard
-                </Box>
+                </Text>
               </Stack>
               {/* <Text fontSize={[`l`, `xl`]} fontWeight={700}>
                 Frontend Software Engineer | Product Manager | UI/UX Wizard
