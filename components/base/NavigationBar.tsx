@@ -21,11 +21,7 @@ import React from 'react'
 import NextLink from 'next/link'
 import { FiArrowUpRight, FiMenu } from 'react-icons/fi'
 
-type NavBarProps = {
-  hide?: boolean
-}
-
-export const NavigationBar = ({ hide = false }: NavBarProps) => {
+export const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const links: {name: string, external: boolean, link?: string}[] = [
@@ -90,8 +86,10 @@ export const NavigationBar = ({ hide = false }: NavBarProps) => {
         position={`absolute`} 
         right={`1rem`} 
         onClick={onOpen}
-        display={{ base: 'block', md: 'none' }}>
-        <Icon as={FiMenu} />
+        display={{ base: 'block', md: 'none' }}
+        backgroundColor={`transparent`}
+        backdropFilter={`blur(10px)`}>
+        <Icon h={`1.5rem`} w={`1.5rem`} as={FiMenu} />
       </Button>
       <Drawer 
         placement={`right`} 
@@ -113,7 +111,7 @@ export const NavigationBar = ({ hide = false }: NavBarProps) => {
               >
                 <Heading>Mike Filicetti</Heading>
               </Link>
-              <DrawerCloseButton />
+              <DrawerCloseButton h={`2rem`} w={`2rem`} size={`lg`} />
             </Box>
           </DrawerHeader>
           <DrawerBody>
@@ -132,50 +130,6 @@ export const NavigationBar = ({ hide = false }: NavBarProps) => {
         display={{ base: 'none', md: 'flex' }}>
         {mapLinks()}
       </HStack>
-    </Flex>
-  )
-
-  return (
-    <Flex 
-      w={`100%`}
-      p={`24px`}
-      direction={[`column`, `row`]} 
-      align={`center`} 
-      fontSize={`11px`}
-      backdropFilter={`blur(10px)`}
-      borderBottom={`default`}>
-      <Box flexGrow={1} w={[`unset`, `100%`]}>
-        <Link 
-          as={NextLink} 
-          href={`/`} 
-          textDecoration={`none`}
-          _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
-        >
-          <Heading>Mike Filicetti</Heading>
-        </Link>
-        <Text casing={`uppercase`}>interesting developments llc</Text>
-      </Box>
-      <Box flexGrow={1} h={`0.5rem`} w={[`unset`, `100%`]}>
-      
-      </Box>
-      {!hide && (
-        <Box flexGrow={1} w={[`unset`, `100%`]} justifyContent={[`center`, `right`]}>
-          <Stack 
-            direction={[`column`, `row`]} 
-            spacing={`20px`} 
-            fontSize={[`14px`, `16px`]}
-            justifyContent={[`center`, `right`]}
-          >
-            <HStack mb={[`1rem`, `0rem`]} spacing={`20px`}>
-              {mapLinks()}
-            </HStack>
-            {/* TODO: add light/dark mode toggle
-            <Box pr={`0.5rem`}>
-              
-            </Box> */}
-          </Stack>
-        </Box>
-      )}
     </Flex>
   )
 }
