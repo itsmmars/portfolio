@@ -14,7 +14,15 @@ import { Layout } from '../components/base/Layout'
 export default function Home() {
   const [fontIndex, setFontIndex] = useState(0);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const fonts = ["Montserrat", "Helvetica", "Babylonica", "Times New Roman", "Poppins"]
+  const fonts = [
+    "Montserrat", 
+    "Pacifico", 
+    "Garamond", 
+    "Babylonica", 
+    "Poppins", 
+    "Caveat",
+    "Perpetua",
+  ]
 
   useEffect(() => {
     const intervalId = setInterval(() => {
