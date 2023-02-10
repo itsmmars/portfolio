@@ -14,12 +14,12 @@ import { Layout } from '../components/base/Layout'
 export default function Home() {
   const [fontIndex, setFontIndex] = useState(0);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const fonts = ["Montserrat", "Helvetica", "Babylonica", "Times New Roman", "Courier New", "Poppins"]
+  const fonts = ["Montserrat", "Helvetica", "Babylonica", "Times New Roman", "Poppins"]
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setFontIndex((fontIndex + 1) % fonts.length)
-    }, 1000)
+    }, 2000)
     return () => {
       clearInterval(intervalId)
     }
@@ -46,7 +46,7 @@ export default function Home() {
             <VStack justifyContent={`center`} spacing="20px">
               <Heading 
                 variant={`small-caps`} 
-                size={fonts[fontIndex] === `Courier New` ? `2xl` : `4xl`}
+                size={`4xl`}
                 lang={``}
                 style={{ fontFamily: fonts[fontIndex] }}>
                   Mike Filicetti
