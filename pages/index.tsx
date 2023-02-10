@@ -1,19 +1,30 @@
 import { 
-  Box, 
   Container, 
-  Flex, 
-  Link, 
+  Flex,  
   Stack, 
-  VStack, 
-  Image, 
+  VStack,  
   Text,
   Heading 
 } from '@chakra-ui/react'
 import Head from 'next/head'
+import { useEffect, useState } from 'react';
 import { Layout } from '../components/base/Layout'
 
 
 export default function Home() {
+  const [fontIndex, setFontIndex] = useState(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const fonts = ["Montserrat", "Helvetica", "Babylonica", "Times New Roman", "Courier New", "Poppins"]
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setFontIndex((fontIndex + 1) % fonts.length)
+    }, 1000)
+    return () => {
+      clearInterval(intervalId)
+    }
+  }, [fontIndex, fonts])
+
   return (
     <>
       <Head>
@@ -33,7 +44,13 @@ export default function Home() {
             m="auto"
           >
             <VStack justifyContent={`center`} spacing="20px">
-              <Heading variant={`small-caps`} size={`4xl`}>Mike Filicetti</Heading>
+              <Heading 
+                variant={`small-caps`} 
+                size={fonts[fontIndex] === `Courier New` ? `2xl` : `4xl`}
+                lang={``}
+                style={{ fontFamily: fonts[fontIndex] }}>
+                  Mike Filicetti
+              </Heading>
               <Stack direction={['column', 'row']} spacing={[`1rem`, `3rem`]} fontSize={[`l`, `xl`]} fontWeight={700}>
                 <Text flexWrap={`nowrap`}>
                   Frontend Software Engineer
