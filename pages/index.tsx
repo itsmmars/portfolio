@@ -4,24 +4,66 @@ import {
   Stack, 
   VStack,  
   Text,
-  Heading 
+  Heading,
+  ScaleFade,
+  Link,
+  Image,
+  Slide
 } from '@chakra-ui/react'
 import Head from 'next/head'
-import { useEffect, useState } from 'react';
+import NextLink from 'next/link'
+import { useEffect, useState } from 'react'
+import useScroll from './api/useScroll'
 import { Layout } from '../components/base/Layout'
 
+export default function Home(this: any) {
+  const [fontIndex, setFontIndex] = useState(0)
 
-export default function Home() {
-  const [fontIndex, setFontIndex] = useState(0);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fonts = [
     "Montserrat", 
     "Pacifico", 
     "Garamond", 
-    "Babylonica", 
-    "Poppins", 
+    "Babylonica",  
     "Caveat",
     "Perpetua",
+  ]
+
+  interface GigProps {
+    name: string
+    logo?: string
+    filter?: boolean
+    alt: string
+    url: string
+  }
+
+  const gigs: GigProps[] = [
+    {
+      name: `PlutusDAO`, 
+      logo: `/plutus-logo.svg`,
+      url: `https://plutusdao.io`,
+      alt: `Plutus DAO`
+    }, 
+    {
+      name: `Keeper AI`, 
+      logo: `/keeper-logo.svg`,
+      url: `https://keeperai.com/`,
+      alt: ``
+    },
+    {
+      name: `CUI`, 
+      logo: `/cui-logo.svg`,
+      filter: true,
+      url: `https://www.cui.edu/`,
+      alt: ``
+    },
+    {
+      name: `Journeys Counseling`, 
+      logo: `/journeys-logo.png`,
+      filter: false,
+      url: `https://journeyscounseling.com/`,
+      alt: ``
+    }
   ]
 
   useEffect(() => {
@@ -32,6 +74,8 @@ export default function Home() {
       clearInterval(intervalId)
     }
   }, [fontIndex, fonts])
+
+  const hasScrolled = useScroll()
 
   return (
     <>
@@ -44,39 +88,66 @@ export default function Home() {
       <Layout hideNavBar={false}>
         <Container maxW="container.xl" centerContent px="0" h="calc(100% - 60px)">
           <Flex 
-            direction="row" 
+            direction="column" 
             justify="center"
             align="center"
             w="100%"
             textAlign="center"
             m="auto"
           >
-            <VStack justifyContent={`center`} spacing="20px">
-              <Heading 
-                variant={`small-caps`} 
-                size={`4xl`}
-                lang={``}
-                style={{ fontFamily: fonts[fontIndex] }}>
-                  Mike Filicetti
-              </Heading>
-              <Stack direction={['column', 'row']} spacing={[`1rem`, `3rem`]} fontSize={[`l`, `xl`]} fontWeight={700}>
-                <Text flexWrap={`nowrap`}>
-                  Frontend Software Engineer
-                </Text>
-                <Text flexWrap={`nowrap`}>
-                  Product Manager
-                </Text>
-                <Text flexWrap={`nowrap`}>
-                  UI/UX Wizard
-                </Text>
-              </Stack>
-              {/* <Text fontSize={[`l`, `xl`]} fontWeight={700}>
-                Frontend Software Engineer | Product Manager | UI/UX Wizard
-              </Text> */}
-              <Text fontSize={[`sm`, `md`]} py={[`3rem`, `1rem`]}>
-                Crafting seamless UI/UX solutions to drive your business forward.
-              </Text>
-            </VStack>
+            <ScaleFade in={true} style={{ transition: `ease-in-out 1.3s` }}>
+              <VStack mt={`20em`} justifyContent={`center`} spacing="20px">
+                <Heading 
+                  size={[`3xl`, `4xl`]}
+                  style={{ fontFamily: fonts[fontIndex]}}>
+                    Mike Filicetti
+                </Heading>
+                <VStack justifyContent={`center`} spacing="20px">
+                  <Stack direction={[`column`, `row`]} spacing={[`1rem`, `3rem`]}>
+                    <Text flexWrap={`nowrap`}>
+                      Frontend Software Engineer
+                    </Text>
+                    <Text flexWrap={`nowrap`}>
+                      Product Manager
+                    </Text>
+                    <Text flexWrap={`nowrap`}>
+                      UI/UX Wizard
+                    </Text>
+                  </Stack>
+                  <Text fontSize={[`sm`, `md`]} py={[`3rem`, `1rem`]}>
+                    Crafting seamless UI/UX solutions to drive your business forward.
+                  </Text>
+                </VStack>
+              </VStack>
+            </ScaleFade>
+            <ScaleFade in={hasScrolled} style={{ transition: `ease-in-out 2s` }}>
+              <VStack 
+                mt={`20em`}
+                mb={`5em`}
+                direction={`column`} 
+                spacing={[`0.5rem`, `2rem`]} 
+                fontSize={[`l`, `xl`]} 
+                fontWeight={700}>
+                  <Heading size={`3xl`}>Clients</Heading>
+                  {gigs.map((g, i) => (
+                    <Link 
+                      key={i}
+                      as={NextLink} 
+                      href={g.url} 
+                      isExternal={true}
+                      textDecoration={`none`}
+                      _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+                    >
+                      <Image 
+                        my={`2em`}
+                        alt={g.alt} 
+                        src={g.logo} 
+                        w={`300px`} 
+                        className={g.filter ? `svg-filter` : ``}/>
+                    </Link>
+                  ))}
+              </VStack>
+            </ScaleFade>
           </Flex>
         </Container>
       </Layout>
