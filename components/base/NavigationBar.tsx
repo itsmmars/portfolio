@@ -81,7 +81,9 @@ export const NavigationBar = () => {
         >
           <Heading>Mike Filicetti</Heading>
         </Link>
-        <Text fontSize={[`xs`, `md`]} casing={`uppercase`}>interesting developments llc</Text>
+        <Text fontSize={[`xs`, `md`]} casing={`uppercase`}>
+          interesting developments llc
+        </Text>
       </Box>
       <Button 
         position={`absolute`} 
@@ -113,7 +115,7 @@ export const NavigationBar = () => {
               >
                 <Heading size={`3xl`}>Mike Filicetti</Heading>
               </Link>
-              <DrawerCloseButton h={`2rem`} w={`2rem`} size={`lg`} />
+              <DrawerCloseButton pt={`0.25rem`} h={`2rem`} w={`2rem`} size={`lg`} />
             </Box>
           </DrawerHeader>
           <DrawerBody>
