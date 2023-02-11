@@ -1,4 +1,4 @@
-[![Sync to main](https://github.com/itsmmars/portfolio/actions/workflows/sync.yaml/badge.svg)](https://github.com/itsmmars/portfolio/actions/workflows/sync.yaml)
+![prod](https://github.com/PlutusDAO/plutus-ui/actions/workflows/main.yaml/badge.svg)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
