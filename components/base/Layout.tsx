@@ -41,7 +41,7 @@ export const Layout = ({ children, hideNavBar = false }: LayoutProps) => {
 
   return (
     <>
-      <Container maxW="96em" px={0} py={[`1rem`, `unset`]} h={{base: `auto`, lg: `100%`}}>
+      <Container maxW="96em" px={0} h={{base: `auto`, lg: `100%`}}>
         {/* 2xl */}
         <VStack h="100vh" w="100%">
           <NavigationBar />

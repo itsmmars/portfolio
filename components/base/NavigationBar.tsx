@@ -1,6 +1,5 @@
 import { 
   Text, 
-  Stack,
   HStack,
   useDisclosure,
   Flex, 
@@ -25,20 +24,20 @@ export const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const links: {name: string, external: boolean, link?: string}[] = [
-    {
-      name: `Portfolio`,
-      external: false,
-      link: ``
+    { 
+      name: `Portfolio`, 
+      external: false, 
+      link: `` 
     }, 
-    {
-      name: `LinkedIn`,
-      external: true,
-      link: `https://www.linkedin.com/in/mikefili`
+    { 
+      name: `LinkedIn`, 
+      external: true, 
+      link: `https://www.linkedin.com/in/mikefili` 
     },
-    {
-      name: `GitHub`,
-      external: true,
-      link: `https://github.com/itsmmars`
+    { 
+      name: `GitHub`, 
+      external: true, 
+      link: `https://github.com/itsmmars` 
     }
   ]
 
@@ -61,6 +60,7 @@ export const NavigationBar = () => {
 
   return (
     <Flex
+      position={[`fixed`, `unset`]}
       as="nav"
       w={`100%`}
       p={`24px`}
@@ -84,12 +84,13 @@ export const NavigationBar = () => {
       </Box>
       <Button 
         position={`absolute`} 
-        right={`1rem`} 
+        right={`0.5rem`} 
+        top={`1.25rem`}
         onClick={onOpen}
         display={{ base: 'block', md: 'none' }}
         backgroundColor={`transparent`}
         backdropFilter={`blur(10px)`}>
-        <Icon h={`1.5rem`} w={`1.5rem`} as={FiMenu} />
+        <Icon h={`3rem`} w={`3rem`} as={FiMenu} />
       </Button>
       <Drawer 
         placement={`right`} 
@@ -100,7 +101,7 @@ export const NavigationBar = () => {
         <DrawerContent 
           backgroundColor={`transparent`}
           backdropFilter={`blur(10px)`}>
-          <DrawerHeader>
+          <DrawerHeader pt={`2.5rem`}>
             <Box flexGrow={1} w={[`unset`, `100%`]}>
               <Link 
                 as={NextLink} 
@@ -109,13 +110,16 @@ export const NavigationBar = () => {
                 textDecoration={`none`}
                 _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
               >
-                <Heading>Mike Filicetti</Heading>
+                <Heading size={`3xl`}>Mike Filicetti</Heading>
               </Link>
               <DrawerCloseButton h={`2rem`} w={`2rem`} size={`lg`} />
             </Box>
           </DrawerHeader>
           <DrawerBody>
-            <VStack mb={[`1rem`, `0rem`]} justifyContent={`space-between`}>
+            <VStack 
+              mb={[`1rem`, `0rem`]} 
+              justifyContent={`space-between`}
+              fontSize={`4xl`}>
               {mapLinks()}
             </VStack>
           </DrawerBody>

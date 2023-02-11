@@ -5,7 +5,6 @@ import {
   Link,
   Text
 } from '@chakra-ui/react'
-import { v4 } from 'uuid'
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
@@ -28,9 +27,9 @@ const mapLinks = () => {
       fontSize={`16px`} 
       spacing={`20px`}
       my={`1rem`}>
-      {links.map((l) => {
+      {links.map((l, i) => {
         return (
-          <Link key={v4()} href={l.link} isExternal>
+          <Link key={i} href={l.link} isExternal>
             <Icon as={l.icon} />
           </Link>
         )
