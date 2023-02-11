@@ -19,6 +19,7 @@ import {
 import React from 'react'
 import NextLink from 'next/link'
 import { FiArrowUpRight, FiMenu } from 'react-icons/fi'
+import ContactForm from './Contact'
 
 export const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -122,6 +123,7 @@ export const NavigationBar = () => {
               fontSize={`4xl`}>
               {mapLinks()}
             </VStack>
+            <ContactForm />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
