@@ -14,31 +14,41 @@ import {
   DrawerContent,
   DrawerBody,
   DrawerCloseButton,
-  VStack
+  VStack,
+  useMediaQuery
 } from '@chakra-ui/react'
+import { 
+  FiArrowUpRight, 
+  FiMenu
+} from 'react-icons/fi'
+import { FaGithub, FaLinkedin, FaFolderOpen } from 'react-icons/fa'
 import React from 'react'
 import NextLink from 'next/link'
-import { FiArrowUpRight, FiMenu } from 'react-icons/fi'
 import ContactForm from './Contact'
+import { IconType } from 'react-icons'
 
 export const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [isMobile] = useMediaQuery('(max-width: 768px)')
 
-  const links: {name: string, external: boolean, link?: string}[] = [
+  const links: {name: string, external: boolean, link?: string, icon: IconType}[] = [
     { 
       name: `Portfolio`, 
       external: false, 
-      link: `` 
+      link: ``,
+      icon: FaFolderOpen
     }, 
     { 
       name: `LinkedIn`, 
       external: true, 
-      link: `https://www.linkedin.com/in/mikefili` 
+      link: `https://www.linkedin.com/in/mikefili`,
+      icon: FaLinkedin
     },
     { 
       name: `GitHub`, 
       external: true, 
-      link: `https://github.com/itsmmars` 
+      link: `https://github.com/itsmmars`,
+      icon: FaGithub
     }
   ]
 
@@ -51,9 +61,27 @@ export const NavigationBar = () => {
         isExternal={l.external}
         textDecoration={`none`}
         _hover={{ color: `rgba(255, 255, 255, 0.7)` }}>
-        <Text whiteSpace="nowrap">
-          {l.name} {l.external ? <Icon as={FiArrowUpRight} /> : ``}
-        </Text>
+          {isMobile ? (
+            <Icon w={10} h={10} as={l.icon} />
+          ) : (
+            <Text whiteSpace="nowrap">
+              {l.name} {l.external ? <Icon as={FiArrowUpRight} /> : ``}
+            </Text>
+          )}
+      </Link>
+      )
+    )
+  }
+
+  const mapMobileLinks = () => {
+    return links.map((l, i) => (
+      <Link 
+        key={i} 
+        as={NextLink}
+        href={l.external ? l.link : `/${l.name.toLowerCase()}`}
+        isExternal={l.external}
+        textDecoration={`none`}>
+        <Icon w={10} h={10} as={l.icon} />
       </Link>
       )
     )
@@ -122,8 +150,10 @@ export const NavigationBar = () => {
             <VStack 
               mb={[`1rem`, `0rem`]} 
               justifyContent={`space-between`}
-              fontSize={`4xl`}>
-              {mapLinks()}
+              fontSize={`3xl`}>
+                <HStack mt={2} spacing={8}>
+                  {mapMobileLinks()}
+                </HStack>
               <ContactForm />
             </VStack>
           </DrawerBody>

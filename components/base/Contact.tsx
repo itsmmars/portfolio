@@ -88,7 +88,7 @@ export default function ContactForm() {
       w={`full`} 
       maxW={`md`} 
       mx={`auto`} 
-      py={8} 
+      py={4} 
       px={`1rem`}>
       <Box 
         textAlign={`center`} 
