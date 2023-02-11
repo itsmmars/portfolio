@@ -23,7 +23,6 @@ export default function Home(this: any) {
   const fonts = [
     "Montserrat", 
     "Pacifico", 
-    "Garamond", 
     "Babylonica",  
     "Caveat",
     "Perpetua",
@@ -96,7 +95,7 @@ export default function Home(this: any) {
             m="auto"
           >
             <ScaleFade in={true} style={{ transition: `ease-in-out 1.3s` }}>
-              <VStack mt={[`10em`, `20em`]} justifyContent={`center`} spacing="20px">
+              <VStack mt={[`20rem`, `20em`]} justifyContent={`center`} spacing="20px">
                 <Heading 
                   size={[`3xl`, `4xl`]}
                   style={{ fontFamily: fonts[fontIndex]}}>
