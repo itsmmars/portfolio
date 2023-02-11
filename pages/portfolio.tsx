@@ -122,14 +122,7 @@ const gigs: GigProps[] = [
 export default function Portfolio() {
   return (
     <Layout hideNavBar={false}>
-      <Flex m={`1rem`} flexDir={`column`}>
-        <Heading 
-          mb={`1rem`} 
-          lineHeight={`inherit`} 
-          textAlign={`center`}
-        >
-          My Portfolio
-        </Heading>
+      <Flex m={`1rem`} mt={[`7rem`, `0rem`]} flexDir={`column`}>
         {gigs.map((g) => {
           return (
             <Card 
