@@ -56,7 +56,7 @@ export default function ContactForm() {
       .then(() => {
         // Display a success toast message
         toast({
-          title: 'Email sent!',
+          title: 'Message sent!',
           description: 'Your message has been sent. Mike will be in touch soon.',
           status: 'success',
           duration: 5000,
@@ -84,46 +84,70 @@ export default function ContactForm() {
   };
 
   return (
-    <Box w={`full`} maxW={`md`} mx={`auto`} py={8} px={`1rem`}>
-      <Box textAlign={`center`} fontSize={`2xl`} fontWeight={`semibold`} mb={`1rem`}>
+    <Box 
+      w={`full`} 
+      maxW={`md`} 
+      mx={`auto`} 
+      py={8} 
+      px={`1rem`}>
+      <Box 
+        textAlign={`center`} 
+        fontSize={`2xl`} 
+        fontWeight={`semibold`} 
+        mb={`1rem`}>
         Let&apos;s Connect
       </Box>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
         <FormControl isInvalid={errors.name != null}>
-          <FormLabel htmlFor={`name`}>Name</FormLabel>
+          <FormLabel htmlFor={`name`}>
+            Name
+          </FormLabel>
           <Input
             id={`name`}
             placeholder={`Enter your name`}
             {...register('name')}
           />
-          <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
+          <FormErrorMessage>
+            {errors.name?.message}
+          </FormErrorMessage>
         </FormControl>
-        <FormControl mt={`1rem`} isInvalid={errors.email != null}>
-          <FormLabel htmlFor={`email`}>Email</FormLabel>
+        <FormControl 
+          mt={`1rem`} 
+          isInvalid={errors.email != null}>
+          <FormLabel htmlFor={`email`}>
+            Email
+          </FormLabel>
           <Input
             id={`email`}
             type={`email`}
             placeholder={`Enter your email`}
             {...register('email')}
           />
-          <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
+          <FormErrorMessage>
+            {errors.email?.message}
+          </FormErrorMessage>
         </FormControl>
-        <FormControl mt={`1rem`} isInvalid={errors.message != null}>
+        <FormControl 
+          mt={`1rem`} 
+          isInvalid={errors.message != null}>
           <FormLabel htmlFor='message'>Message</FormLabel>
           <Textarea
             id={`message`}
             placeholder={`Enter your message`}
             {...register('message')}
           />
-          <FormErrorMessage>{errors.message?.message}</FormErrorMessage>
+          <FormErrorMessage>
+            {errors.message?.message}
+          </FormErrorMessage>
         </FormControl>
         <Button
           type={`submit`}
           mt={`1.5rem`}
           isLoading={isSubmitting}
-          loadingText={`Submitting`}
+          loadingText={`Sending`}
+          backgroundColor={`rgba(26, 171, 0, 1)`}
         >
-          Submit
+          Send
         </Button>
       </form>
     </Box>
