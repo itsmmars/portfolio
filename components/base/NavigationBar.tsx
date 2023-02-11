@@ -80,7 +80,7 @@ export const NavigationBar = () => {
         >
           <Heading>Mike Filicetti</Heading>
         </Link>
-        <Text casing={`uppercase`}>interesting developments llc</Text>
+        <Text fontSize={[`xs`, `md`]} casing={`uppercase`}>interesting developments llc</Text>
       </Box>
       <Button 
         position={`absolute`} 
