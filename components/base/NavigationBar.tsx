@@ -60,7 +60,8 @@ export const NavigationBar = () => {
         href={l.external ? l.link : `/${l.name.toLowerCase()}`}
         isExternal={l.external}
         textDecoration={`none`}
-        _hover={{ color: `rgba(255, 255, 255, 0.7)` }}>
+        // _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+        >
           {isMobile ? (
             <Icon w={10} h={10} as={l.icon} />
           ) : (
@@ -152,7 +153,7 @@ export const NavigationBar = () => {
               justifyContent={`space-between`}
               fontSize={`3xl`}>
                 <HStack mt={2} spacing={8}>
-                  {mapMobileLinks()}
+                  {mapLinks()}
                 </HStack>
               <ContactForm />
             </VStack>

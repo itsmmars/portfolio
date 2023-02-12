@@ -1,5 +1,5 @@
-import '@fontsource/poppins'
-import '@fontsource/montserrat'
+import '@fontsource/inter'
+import '@fontsource/montserrat/100.css'
 import '@fontsource/babylonica'
 import '@fontsource/pacifico'
 import '@fontsource/caveat'

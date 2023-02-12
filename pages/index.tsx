@@ -18,6 +18,7 @@ import { Layout } from '../components/base/Layout'
 
 export default function Home(this: any) {
   const [fontIndex, setFontIndex] = useState(0)
+  const hasScrolled = useScroll()
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fonts = [
@@ -25,7 +26,6 @@ export default function Home(this: any) {
     "Pacifico", 
     "Babylonica",  
     "Caveat",
-    "Perpetua",
   ]
 
   interface GigProps {
@@ -72,9 +72,7 @@ export default function Home(this: any) {
     return () => {
       clearInterval(intervalId)
     }
-  }, [fontIndex, fonts])
-
-  const hasScrolled = useScroll()
+  }, [fontIndex, fonts])  
 
   return (
     <>
