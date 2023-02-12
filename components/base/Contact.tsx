@@ -10,7 +10,10 @@ import {
   FormLabel,
   Input,
   Textarea,
-  useToast,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription
 } from '@chakra-ui/react'
 import emailjs from 'emailjs-com'
 
@@ -27,9 +30,7 @@ const schema = yup.object().shape({
 })
 
 export default function ContactForm() {
-  const toast = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
-
   const {
     register,
     handleSubmit,
@@ -41,6 +42,7 @@ export default function ContactForm() {
   const handleFormSubmit = async (data: FormValues, e: any) => {
     setIsSubmitting(true)
 
+    // try emailjs send method w/ user data
     try {
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -52,32 +54,55 @@ export default function ContactForm() {
         },
         process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
       )
+      
+      // clear the form data
+      e.preventDefault()
+      e.target.reset()
 
       .then(() => {
-        // Display a success toast message
-        toast({
-          title: 'Message sent!',
-          description: 'Your message has been sent. Mike will be in touch soon.',
-          status: 'success',
-          duration: 5000,
-          isClosable: true,
-          position: 'top'
-        });
-
-        // Clear the form
-        e.preventDefault()
-        e.target.reset()
+        // alert user on success
+        return (
+          <Alert
+            status='success'
+            variant='subtle'
+            flexDirection='column'
+            alignItems='center'
+            justifyContent='center'
+            textAlign='center'
+            height='200px'
+          >
+            <AlertIcon boxSize='40px' mr={0} />
+            <AlertTitle mt={4} mb={1} fontSize='lg'>
+              Message sent
+            </AlertTitle>
+            <AlertDescription maxWidth='sm'>
+              Mike will be in touch soon. Thanks!
+            </AlertDescription>
+          </Alert>
+        )
       })
     } catch (error) {
-      // Display a failure toast message
-      toast({
-        title: 'Email failed to send',
-        description: 'There was an error sending your message. Please try again later.',
-        status: 'error',
-        duration: 5000,
-        isClosable: true,
-        position: 'top'
-      })
+      // alert user on error & log error to console
+      console.debug('ERROR - Send failed: ', error)
+      return (
+        <Alert
+          status='error'
+          variant='subtle'
+          flexDirection='column'
+          alignItems='center'
+          justifyContent='center'
+          textAlign='center'
+          height='200px'
+        >
+          <AlertIcon boxSize='40px' mr={0} />
+          <AlertTitle mt={4} mb={1} fontSize='lg'>
+            Message failed to send
+          </AlertTitle>
+          <AlertDescription maxWidth='sm'>
+            There was an error sending your message. Please try again later.
+          </AlertDescription>
+        </Alert>
+      )
     }
 
     setIsSubmitting(false)
