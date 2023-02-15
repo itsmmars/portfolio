@@ -15,7 +15,12 @@ import {
   DrawerBody,
   DrawerCloseButton,
   VStack,
-  useMediaQuery
+  useMediaQuery,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from '@chakra-ui/react'
 import { 
   FiArrowUpRight, 
@@ -31,7 +36,7 @@ export const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isMobile] = useMediaQuery('(max-width: 768px)')
 
-  const links: {name: string, external: boolean, link?: string, icon: IconType}[] = [
+  const links: {name: string, external: boolean, link?: string, icon: IconType}[] = [ 
     { 
       name: `Portfolio`, 
       external: false, 
@@ -74,101 +79,134 @@ export const NavigationBar = () => {
     )
   }
 
-  const mapMobileLinks = () => {
-    return links.map((l, i) => (
-      <Link 
-        key={i} 
-        as={NextLink}
-        href={l.external ? l.link : `/${l.name.toLowerCase()}`}
-        isExternal={l.external}
-        textDecoration={`none`}>
-        <Icon w={10} h={10} as={l.icon} />
-      </Link>
-      )
-    )
-  }
-
   return (
     <Flex
       position={[`fixed`, `unset`]}
       as="nav"
       w={`100%`}
-      p={`24px`}
+      p={`20px`}
       direction={`row`} 
       align={`center`} 
-      backgroundColor={`transparent`}
-      backdropFilter={`blur(10px)`}
+      backgroundColor={`red`}
       borderBottom={`default`}
+      boxShadow={`2px 2px 10px 2px rgba(0, 0, 0, 0.15)`}
       zIndex={4}
+      color={`white`}
     >
-      <Box flexGrow={1} w={[`unset`, `100%`]}>
-        <Link 
-          as={NextLink} 
-          href={`/`} 
-          textDecoration={`none`}
-          _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+      <Flex maxW={`96em`} w={`100%`} m={`auto`}>
+
+        <Box 
+          flexGrow={1} 
+          w={[`unset`, `100%`]}
         >
-          <Heading>Mike Filicetti</Heading>
-        </Link>
-        <Text fontSize={[`xs`, `md`]} casing={`uppercase`}>
-          interesting developments llc
-        </Text>
-      </Box>
-      <Button 
-        position={`absolute`} 
-        right={`0.5rem`} 
-        top={`1.25rem`}
-        onClick={onOpen}
-        display={{ base: 'block', md: 'none' }}
-        backgroundColor={`transparent`}
-        backdropFilter={`blur(10px)`}>
-        <Icon h={`3rem`} w={`3rem`} as={FiMenu} />
-      </Button>
-      <Drawer 
-        placement={`right`} 
-        onClose={onClose} 
-        isOpen={isOpen}
-        size={`full`}>
-        <DrawerOverlay />
-        <DrawerContent 
+          <Link 
+            as={NextLink} 
+            href={`/`} 
+            textDecoration={`none`}
+            _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+          >
+            <Heading fontFamily={`'Changa One', sans-serif`} size={`2xl`}>M</Heading>
+          </Link>
+        </Box>
+        <Button 
+          position={`absolute`} 
+          right={`0.5rem`} 
+          top={`1.25rem`}
+          onClick={onOpen}
+          display={{ base: 'block', md: 'none' }}
           backgroundColor={`transparent`}
-          backdropFilter={`blur(10px)`}>
-          <DrawerHeader pt={`2.5rem`}>
-            <Box flexGrow={1} w={[`unset`, `100%`]}>
+        >
+          <Icon  w={10} h={10} as={FiMenu} />
+        </Button>
+        <Drawer 
+          placement={`left`} 
+          onClose={onClose} 
+          isOpen={isOpen}
+          size={`full`}>
+          <DrawerOverlay />
+          <DrawerContent 
+            backgroundColor={`red`}
+            color={`white`}>
+            <DrawerHeader>
               <Link 
                 as={NextLink} 
                 href={`/`} 
-                textAlign={`center`}
+                textAlign={`left`}
                 textDecoration={`none`}
                 _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
               >
-                <Heading size={`3xl`}>Mike Filicetti</Heading>
+                <Heading size={`md`}>Mike Filicetti</Heading>
               </Link>
-              <DrawerCloseButton pt={`0.25rem`} h={`2rem`} w={`2rem`} size={`lg`} />
-            </Box>
-          </DrawerHeader>
-          <DrawerBody>
-            <VStack 
-              mb={[`1rem`, `0rem`]} 
-              justifyContent={`space-between`}
-              fontSize={`3xl`}>
-                <HStack mt={2} spacing={8}>
-                  {mapLinks()}
-                </HStack>
-              <ContactForm />
-            </VStack>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
-      <HStack 
-        mb={[`1rem`, `0rem`]} 
-        spacing={`20px`}
-        flexGrow={1}
-        width={{ base: 'full', md: 'auto' }}
-        alignItems="center"
-        display={{ base: 'none', md: 'flex' }}>
-        {mapLinks()}
-      </HStack>
+              <DrawerCloseButton size={`xl`} pt={`0.25rem`} />
+            </DrawerHeader>
+            <DrawerBody>
+              <VStack 
+                mb={[`1rem`, `0rem`]} 
+                justifyContent={`space-between`}
+                fontSize={`3xl`}>
+                  <Accordion w={`100%`} allowToggle>
+                    <AccordionItem>
+                      <h2>
+                        <AccordionButton>
+                          <Box as="span" flex='1' textAlign='left'>
+                            See My Work
+                          </Box>
+                          <AccordionIcon />
+                        </AccordionButton>
+                      </h2>
+                      <AccordionPanel pb={4}>
+                        <VStack>
+                          <Link 
+                            as={NextLink} 
+                            href={`/portfolio`} 
+                            textDecoration={`none`}
+                            _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+                          >
+                            <Text>Portfolio</Text>
+                          </Link>
+                          <Link 
+                            href={`/Mike Filicetti - 2023 Resume.pdf`}
+                            download={`Mike Filicetti - 2023 Resume`} 
+                            textDecoration={`none`}
+                            _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+                          >
+                            <Text>Download Resume</Text>
+                          </Link>
+                        </VStack>
+                      </AccordionPanel>
+                    </AccordionItem>
+
+                    <AccordionItem>
+                      <h2>
+                        <AccordionButton>
+                          <Box as="span" flex='1' textAlign='left'>
+                            Lets Connect
+                          </Box>
+                          <AccordionIcon />
+                        </AccordionButton>
+                      </h2>
+                      <AccordionPanel pb={4}>
+                        <ContactForm />
+                      </AccordionPanel>
+                    </AccordionItem>
+                  </Accordion>
+                  <HStack pt={4} mt={2} spacing={8}>
+                    {mapLinks()}
+                  </HStack>
+              </VStack>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
+        <HStack 
+          mb={[`1rem`, `0rem`]} 
+          spacing={`20px`}
+          flexGrow={1}
+          width={{ base: 'full', md: 'auto' }}
+          alignItems="center"
+          display={{ base: 'none', md: 'flex' }}>
+          {mapLinks()}
+        </HStack>
+      </Flex>
     </Flex>
   )
 }
