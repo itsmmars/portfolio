@@ -74,45 +74,32 @@ export const NavigationBar = () => {
     )
   }
 
-  const mapMobileLinks = () => {
-    return links.map((l, i) => (
-      <Link 
-        key={i} 
-        as={NextLink}
-        href={l.external ? l.link : `/${l.name.toLowerCase()}`}
-        isExternal={l.external}
-        textDecoration={`none`}>
-        <Icon w={10} h={10} as={l.icon} />
-      </Link>
-      )
-    )
-  }
-
   return (
     <Flex
       position={[`fixed`, `unset`]}
       as="nav"
       w={`100%`}
-      p={`24px`}
+      p={`20px`}
       direction={`row`} 
       align={`center`} 
-      backgroundColor={`transparent`}
-      backdropFilter={`blur(10px)`}
+      backgroundColor={`red`}
       borderBottom={`default`}
+      boxShadow={`2px 2px 10px 2px rgba(0, 0, 0, 0.15)`}
       zIndex={4}
+      color={`white`}
     >
-      <Box flexGrow={1} w={[`unset`, `100%`]}>
+      <Box 
+        flexGrow={1} 
+        w={[`unset`, `100%`]}
+      >
         <Link 
           as={NextLink} 
           href={`/`} 
           textDecoration={`none`}
           _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
         >
-          <Heading>Mike Filicetti</Heading>
+          <Heading size={`2xl`}>M</Heading>
         </Link>
-        <Text fontSize={[`xs`, `md`]} casing={`uppercase`}>
-          interesting developments llc
-        </Text>
       </Box>
       <Button 
         position={`absolute`} 
@@ -121,31 +108,29 @@ export const NavigationBar = () => {
         onClick={onOpen}
         display={{ base: 'block', md: 'none' }}
         backgroundColor={`transparent`}
-        backdropFilter={`blur(10px)`}>
-        <Icon h={`3rem`} w={`3rem`} as={FiMenu} />
+      >
+        <Icon  w={10} h={10} as={FiMenu} />
       </Button>
       <Drawer 
-        placement={`right`} 
+        placement={`left`} 
         onClose={onClose} 
         isOpen={isOpen}
         size={`full`}>
         <DrawerOverlay />
         <DrawerContent 
-          backgroundColor={`transparent`}
-          backdropFilter={`blur(10px)`}>
-          <DrawerHeader pt={`2.5rem`}>
-            <Box flexGrow={1} w={[`unset`, `100%`]}>
-              <Link 
-                as={NextLink} 
-                href={`/`} 
-                textAlign={`center`}
-                textDecoration={`none`}
-                _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
-              >
-                <Heading size={`3xl`}>Mike Filicetti</Heading>
-              </Link>
-              <DrawerCloseButton pt={`0.25rem`} h={`2rem`} w={`2rem`} size={`lg`} />
-            </Box>
+          backgroundColor={`red`}
+          color={`white`}>
+          <DrawerHeader>
+            <Link 
+              as={NextLink} 
+              href={`/`} 
+              textAlign={`left`}
+              textDecoration={`none`}
+              _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+            >
+              <Heading size={`md`}>Mike Filicetti</Heading>
+            </Link>
+            <DrawerCloseButton size={`xl`} pt={`0.25rem`} />
           </DrawerHeader>
           <DrawerBody>
             <VStack 
@@ -155,7 +140,7 @@ export const NavigationBar = () => {
                 <HStack mt={2} spacing={8}>
                   {mapLinks()}
                 </HStack>
-              <ContactForm />
+              {/* <ContactForm /> */}
             </VStack>
           </DrawerBody>
         </DrawerContent>

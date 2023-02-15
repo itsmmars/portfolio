@@ -24,28 +24,6 @@ export const Layout = ({ children, hideNavBar = false }: LayoutProps) => {
     {size: 706, left: 459, top: 191, color: `rgba(79, 248, 65, 0.04)`}
   ]
 
-  const handleBackground = () => {
-    return <>
-      {circles.map((c) => {
-        return (
-          <Box 
-            key={v4()}
-            zIndex={-1}
-            w={`${c.size}px`} 
-            h={`${c.size}px`} 
-            borderRadius={`500px`} 
-            position={`fixed`} 
-            left={`${c.left}px`}
-            top={`${c.top}px`}
-            backgroundColor={c.color}
-            filter={`blur(188px)`}
-            suppressHydrationWarning={true}
-          />
-        )
-      })}
-    </>
-  }
-
   return (
     <>
       <Container maxW="96em" px={0} h={{base: `auto`, lg: `100%`}}>
@@ -56,7 +34,7 @@ export const Layout = ({ children, hideNavBar = false }: LayoutProps) => {
             {children}
           </Box>
           <Box>
-            {handleBackground()}
+            {/* {handleBackground()} */}
           </Box>
           <Footer />
         </VStack>
