@@ -120,14 +120,18 @@ export default function ContactForm() {
         fontSize={`2xl`} 
         fontWeight={`semibold`} 
         mb={`1rem`}>
-        Let&apos;s Connect
+        Message Me
       </Box>
-      <form onSubmit={handleSubmit(handleFormSubmit)}>
+      <form 
+        onSubmit={handleSubmit(handleFormSubmit)}
+      >
         <FormControl isInvalid={errors.name != null}>
           <FormLabel htmlFor={`name`}>
             Name
           </FormLabel>
           <Input
+            outline={`1px solid white`}
+            _placeholder={{ color: 'white' }}
             id={`name`}
             placeholder={`Enter your name`}
             {...register('name')}
@@ -143,6 +147,8 @@ export default function ContactForm() {
             Email
           </FormLabel>
           <Input
+            outline={`1px solid white`}
+            _placeholder={{ color: 'white' }}
             id={`email`}
             type={`email`}
             placeholder={`Enter your email`}
@@ -157,6 +163,8 @@ export default function ContactForm() {
           isInvalid={errors.message != null}>
           <FormLabel htmlFor='message'>Message</FormLabel>
           <Textarea
+            outline={`1px solid white`}
+            _placeholder={{ color: 'white' }}
             id={`message`}
             placeholder={`Enter your message`}
             {...register('message')}
@@ -170,7 +178,9 @@ export default function ContactForm() {
           mt={`1.5rem`}
           isLoading={isSubmitting}
           loadingText={`Sending`}
-          backgroundColor={`rgba(26, 171, 0, 1)`}
+          color={`red`}
+          fontWeight={`700`}
+          backgroundColor={`rgba(255,255,255,0.9)`}
         >
           Send
         </Button>

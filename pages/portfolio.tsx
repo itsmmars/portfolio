@@ -11,7 +11,12 @@ import {
   Box,
   Flex,
   Image,
-  Link
+  Link,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from '@chakra-ui/react'
 import React from 'react'
 import NextLink from 'next/link'
@@ -31,7 +36,7 @@ interface GigProps {
 const gigs: GigProps[] = [
   {
     name: `PlutusDAO`, 
-    logo: `/plutus-logo.svg`,
+    logo: `/logo_ver1.svg`,
     url: `https://plutusdao.io`,
     alt: `Plutus DAO`,
     summary: `Web3 application built with TypeScript, Next.js, React.js, Ethers.js, and Chakra UI`,
@@ -56,6 +61,7 @@ const gigs: GigProps[] = [
     name: `Keeper AI`, 
     logo: `/keeper-logo.svg`,
     url: `https://keeperai.com/`,
+    filter: true,
     alt: ``,
     summary: `Enterprise level web application built with TypeScript, React.js, `,
     overview: `Keeper AI is a next generation HR tool used to show off the human side of potential hires. By consuming content from several APIs this enterprise level application allows candidates to use various media to show potential employers who they are at a deeper level.`,
@@ -78,7 +84,6 @@ const gigs: GigProps[] = [
   {
     name: `CUI Virtual Tour`, 
     logo: `/cui-logo.svg`,
-    filter: true,
     url: `https://www.cui.edu/virtual-tour-ug`,
     alt: ``,
     summary: `Virtual tour microsite for Concordia University of Irvine`,
@@ -97,7 +102,6 @@ const gigs: GigProps[] = [
   {
     name: `CUI Website`, 
     logo: `/cui-logo.svg`,
-    filter: true,
     url: `https://www.cui.edu`,
     alt: ``,
     summary: `Concordia University of Irvine's official website`,
@@ -123,69 +127,84 @@ export default function Portfolio() {
   return (
     <Layout hideNavBar={false}>
       <Flex m={`1rem`} mt={[`7rem`, `0rem`]} flexDir={`column`}>
-        {gigs.map((g) => {
+      <Accordion defaultIndex={0}>
+        {gigs.map((g, i) => {
           return (
-            <Card 
-              color={`#EAEAEA`}
-              key={v4()}
-              direction={{ base: 'column', sm: 'row' }}
-              overflow='hidden'
-              mb={`1.5rem`}
-              backgroundColor={`rgba(255, 255, 255, 0.05)`}
-            >
-              <CardHeader>
-                <Link 
-                  as={NextLink} 
-                  href={g.url} 
-                  textDecoration={`none`}
-                  _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
-                >
-                  <Image 
-                    alt={g.alt} 
-                    src={g.logo} 
-                    w={`200px`} 
-                    pb={`0.5rem`}
-                    className={g.filter ? `svg-filter` : ``}/>
-                  <Heading pt='2' size='xs' textTransform='uppercase'>
+            <AccordionItem key={i}>
+              <h2>
+                <AccordionButton>
+                  <Box 
+                    as="span" 
+                    flex='1' 
+                    textAlign='left'
+                    textTransform='uppercase'>
                     {g.name}
-                  </Heading>
-                </Link>
-              </CardHeader>
-
-              <CardBody>
-                <Stack 
-                  divider={<StackDivider />} 
-                  spacing='4'
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4}>
+                <Card 
+                  color={`black`}
+                  direction={{ base: 'column', sm: 'row' }}
+                  overflow='hidden'
+                  mb={`1.5rem`}
+                  backgroundColor={`rgba(255, 255, 255, 0.05)`}
                 >
-                  <Box>
-                    <Heading size='xs' textTransform='uppercase'>
-                      Summary
-                    </Heading>
-                    <Text pt='2' fontSize='sm'>
-                      {g.summary}
-                    </Text>
-                  </Box>
-                  <Box>
-                    <Heading size='xs' textTransform='uppercase'>
-                      Overview
-                    </Heading>
-                    <Text pt='2' fontSize='sm'>
-                      {g.overview}
-                    </Text>
-                  </Box>
-                  <Box>
-                    <Heading size='xs' textTransform='uppercase'>
-                      TECHNOLOGIES USED
-                    </Heading>
-                    <Text pt='2' fontSize='sm'>
-                      {g.tech.join(`, `)}
-                    </Text>
-                  </Box>
-                </Stack>
-              </CardBody>
-            </Card>
+                  <CardHeader>
+                    <Link 
+                      as={NextLink} 
+                      href={g.url} 
+                      textDecoration={`none`}
+                      _hover={{ color: `rgba(0,0,0,0.7)` }}
+                      >
+                      <Image 
+                        alt={g.alt} 
+                        src={g.logo} 
+                        w={`200px`} 
+                        pt={`0.5rem`}
+                        m={`auto`}
+                        className={g.filter ? `svg-filter` : ``}/>
+                    </Link>
+                  </CardHeader>
+
+                  <CardBody>
+                    <Stack 
+                      divider={<StackDivider />} 
+                      spacing='4'
+                      >
+                      <Box>
+                        <Heading size='xs' textTransform='uppercase'>
+                          Summary
+                        </Heading>
+                        <Text pt='2' fontSize='sm'>
+                          {g.summary}
+                        </Text>
+                      </Box>
+                      <Box>
+                        <Heading size='xs' textTransform='uppercase'>
+                          Overview
+                        </Heading>
+                        <Text pt='2' fontSize='sm'>
+                          {g.overview}
+                        </Text>
+                      </Box>
+                      <Box>
+                        <Heading size='xs' textTransform='uppercase'>
+                          TECHNOLOGIES USED
+                        </Heading>
+                        <Text pt='2' fontSize='sm'>
+                          {g.tech.join(`, `)}
+                        </Text>
+                      </Box>
+                    </Stack>
+                  </CardBody>
+                </Card>
+              </AccordionPanel>
+            </AccordionItem>
           )
         })}
+        </Accordion>
       </Flex>
     </Layout>
   )

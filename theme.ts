@@ -1,17 +1,12 @@
 import { extendTheme } from '@chakra-ui/react'
-import { 
-  Comfortaa,
-} from '@next/font/google'
-
-const comfortaa = Comfortaa({ subsets: ['latin'] })
 
 const theme = extendTheme({
   colors: {
     red: `#e30613`
   },
   fonts: {
-    heading: comfortaa.style.fontFamily,
-    body: comfortaa.style.fontFamily,
+    heading: `'Comfortaa', sans-serif`,
+    body: `'Comfortaa', sans-serif`,
 
   },
   styles: {

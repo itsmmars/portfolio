@@ -96,42 +96,48 @@ const Home: NextPage = () => {
             className='test'
           >
             <Fade delay={0.25} in={true}>
-              <Flex 
-                mt={[`20rem`, `20em`]}
-                flexDir={`column`} 
-                w={`300px`}
-              >
-                <HStack>
-                  <Box>
-                    <Heading 
-                      fontSize={`4.35em`} 
-                      ml={`-7px`} 
-                      lineHeight={`0.8em`}
-                      color={`red`}
-                      style={{ fontVariant: 'small-caps'}}
-                    >
-                      Mike
-                    </Heading>
-                    <Text 
-                      letterSpacing={`0.5em`} 
-                      textTransform={`uppercase`}
-                    >
-                        Filicetti
-                    </Text>
-                    <CycleRoles />
-                  </Box>
-                  <Box>
-                    <Image 
-                      src='/mike.jpg' 
-                      alt='mike'
-                      borderRadius={`50%`} />
-                  </Box>
-                </HStack>
-              </Flex>
-              <Flex mt={`3rem`} w={`300px`}>
-                <Text fontWeight={`700`} fontSize={`xl`} color={`red`}>
-                  Crafting seamless UI/UX solutions to drive your business forward.
-                </Text>
+              <Flex flexDir={[`column`, `row`]}>
+                <Flex 
+                  mt={[`20rem`, `20em`]}
+                  flexDir={`column`} 
+                  w={`300px`}
+                >
+                  <HStack>
+                    <Box>
+                      <Heading 
+                        fontSize={`4.35em`} 
+                        ml={`-7px`} 
+                        lineHeight={`0.8em`}
+                        color={`red`}
+                        style={{ fontVariant: 'small-caps'}}
+                      >
+                        Mike
+                      </Heading>
+                      <Text 
+                        letterSpacing={`0.5em`} 
+                        textTransform={`uppercase`}
+                      >
+                          Filicetti
+                      </Text>
+                      <CycleRoles />
+                    </Box>
+                    <Box>
+                      <Image 
+                        src='/mike.jpg' 
+                        alt='mike'
+                        borderRadius={`50%`} />
+                    </Box>
+                  </HStack>
+                </Flex>
+                <Flex 
+                  mt={[`3rem`, `21em`]} 
+                  ml={[`none`, `3rem`]}
+                  w={`300px`}
+                >
+                  <Text fontWeight={`700`} fontSize={`xl`} color={`red`}>
+                    Crafting seamless UI/UX solutions to drive your business forward.
+                  </Text>
+                </Flex>
               </Flex>
             </Fade>
             <ScaleFade in={hasScrolled} style={{ transition: `ease-in-out 2s` }}>

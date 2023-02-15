@@ -15,7 +15,12 @@ import {
   DrawerBody,
   DrawerCloseButton,
   VStack,
-  useMediaQuery
+  useMediaQuery,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from '@chakra-ui/react'
 import { 
   FiArrowUpRight, 
@@ -31,13 +36,7 @@ export const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isMobile] = useMediaQuery('(max-width: 768px)')
 
-  const links: {name: string, external: boolean, link?: string, icon: IconType}[] = [
-    { 
-      name: `Portfolio`, 
-      external: false, 
-      link: ``,
-      icon: FaFolderOpen
-    }, 
+  const links: {name: string, external: boolean, link?: string, icon: IconType}[] = [ 
     { 
       name: `LinkedIn`, 
       external: true, 
@@ -137,10 +136,55 @@ export const NavigationBar = () => {
               mb={[`1rem`, `0rem`]} 
               justifyContent={`space-between`}
               fontSize={`3xl`}>
-                <HStack mt={2} spacing={8}>
+                <Accordion w={`100%`} allowToggle>
+                  <AccordionItem>
+                    <h2>
+                      <AccordionButton>
+                        <Box as="span" flex='1' textAlign='left'>
+                          See My Work
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4}>
+                      <VStack>
+                        <Link 
+                          as={NextLink} 
+                          href={`/portfolio`} 
+                          textDecoration={`none`}
+                          _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+                        >
+                          <Text>Portfolio</Text>
+                        </Link>
+                        <Link 
+                          href={`/Mike Filicetti - 2023 Resume.pdf`}
+                          download={`Mike Filicetti - 2023 Resume`} 
+                          textDecoration={`none`}
+                          _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+                        >
+                          <Text>Download Resume</Text>
+                        </Link>
+                      </VStack>
+                    </AccordionPanel>
+                  </AccordionItem>
+
+                  <AccordionItem>
+                    <h2>
+                      <AccordionButton>
+                        <Box as="span" flex='1' textAlign='left'>
+                          Lets Connect
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4}>
+                      <ContactForm />
+                    </AccordionPanel>
+                  </AccordionItem>
+                </Accordion>
+                <HStack pt={4} mt={2} spacing={8}>
                   {mapLinks()}
                 </HStack>
-              {/* <ContactForm /> */}
             </VStack>
           </DrawerBody>
         </DrawerContent>
