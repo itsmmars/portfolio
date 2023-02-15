@@ -130,7 +130,6 @@ export default function ContactForm() {
             Name
           </FormLabel>
           <Input
-            outline={`1px solid white`}
             _placeholder={{ color: 'white' }}
             id={`name`}
             placeholder={`Enter your name`}
@@ -147,7 +146,6 @@ export default function ContactForm() {
             Email
           </FormLabel>
           <Input
-            outline={`1px solid white`}
             _placeholder={{ color: 'white' }}
             id={`email`}
             type={`email`}
@@ -163,7 +161,6 @@ export default function ContactForm() {
           isInvalid={errors.message != null}>
           <FormLabel htmlFor='message'>Message</FormLabel>
           <Textarea
-            outline={`1px solid white`}
             _placeholder={{ color: 'white' }}
             id={`message`}
             placeholder={`Enter your message`}
