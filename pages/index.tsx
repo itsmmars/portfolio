@@ -9,7 +9,8 @@ import {
   Image,
   Fade,
   HStack,
-  Box
+  Box,
+  useMediaQuery
 } from '@chakra-ui/react'
 import Head from 'next/head'
 import NextLink from 'next/link'
@@ -71,10 +72,10 @@ const Home: NextPage = () => {
       return () => clearInterval(timer)
     }, [])
   
-    return <Text fontSize={`xs`}>{roles[currentStringIndex]}</Text>
+    return <Text fontSize={[`xs`, `1.8em`]}>{roles[currentStringIndex]}</Text>
   }
   
-
+  const [isMobile] = useMediaQuery('(max-width: 768px)')
 
   return (
     <>
@@ -96,17 +97,17 @@ const Home: NextPage = () => {
             className='test'
           >
             <Fade delay={0.25} in={true}>
-              <Flex flexDir={[`column`, `row`]}>
+              <Flex justifyContent={`center`} flexDir={`column`}>
                 <Flex 
-                  mt={[`20rem`, `20em`]}
+                  mt={[`20rem`, `10em`]}
                   flexDir={`column`} 
-                  w={`300px`}
+                  w={[`300px`, `unset`]}
                 >
                   <HStack>
                     <Box>
                       <Heading 
-                        fontSize={`4.35em`} 
-                        ml={`-7px`} 
+                        fontSize={[`4.35em`, `10em`]} 
+                        ml={[`-7px`, `-14px`]} 
                         lineHeight={`0.8em`}
                         color={`red`}
                         style={{ fontVariant: 'small-caps'}}
@@ -116,6 +117,7 @@ const Home: NextPage = () => {
                       <Text 
                         letterSpacing={`0.5em`} 
                         textTransform={`uppercase`}
+                        fontSize={[`initial`, `2.3em`]}
                       >
                           Filicetti
                       </Text>
@@ -130,11 +132,14 @@ const Home: NextPage = () => {
                   </HStack>
                 </Flex>
                 <Flex 
-                  mt={[`3rem`, `21em`]} 
-                  ml={[`none`, `3rem`]}
-                  w={`300px`}
+                  mt={[`3rem`, `none`]} 
+                  w={[`300px`, `unset`]}
                 >
-                  <Text fontWeight={`700`} fontSize={`xl`} color={`red`}>
+                  <Text 
+                    fontWeight={`700`} 
+                    fontSize={`xl`} 
+                    color={`red`}
+                    m={`auto`}>
                     Crafting seamless UI/UX solutions to drive your business forward.
                   </Text>
                 </Flex>
@@ -142,6 +147,7 @@ const Home: NextPage = () => {
             </Fade>
             <ScaleFade in={hasScrolled} style={{ transition: `ease-in-out 2s` }}>
               <VStack 
+                w={`100vw`}
                 mt={`20em`}
                 mb={`5em`}
                 direction={`column`} 
@@ -152,6 +158,7 @@ const Home: NextPage = () => {
                   {gigs.map((g, i) => (
                     <Link 
                       key={i}
+                      w={`50%`}
                       as={NextLink} 
                       href={g.url} 
                       isExternal={true}
@@ -162,7 +169,7 @@ const Home: NextPage = () => {
                         my={`2em`}
                         alt={g.alt} 
                         src={g.logo} 
-                        w={`300px`} 
+                        w={[`300px`, `100%`]} 
                         className={g.filter ? `svg-filter` : ``}
                         />
                     </Link>
