@@ -4,7 +4,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Heading,
   Stack,
   StackDivider,
@@ -20,7 +19,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import NextLink from 'next/link'
-import { v4 } from 'uuid'
+import Head from 'next/head'
 
 interface GigProps {
   name: string
@@ -126,6 +125,10 @@ const gigs: GigProps[] = [
 export default function Portfolio() {
   return (
     <Layout hideNavBar={false}>
+      <Head>
+        <title>Mike Filicetti: Portfolio</title>
+        <meta name="description" content="Mike Filicetti: Portfolio Page" />
+      </Head>
       <Flex m={`1rem`} mt={[`7rem`, `0rem`]} flexDir={`column`}>
       <Accordion defaultIndex={0}>
         {gigs.map((g, i) => {
