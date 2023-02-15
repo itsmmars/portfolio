@@ -40,7 +40,7 @@ export const NavigationBar = () => {
     { 
       name: `Portfolio`, 
       external: false, 
-      link: ``,
+      link: `/portfolio`,
       icon: FaFolderOpen
     }, 
     { 
