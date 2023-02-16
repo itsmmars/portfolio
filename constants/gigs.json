@@ -1,0 +1,92 @@
+{
+  "PlutusDAO": {
+    "name": "PlutusDAO", 
+    "logo": "/logo_ver1.svg",
+    "url": "https://plutusdao.io",
+    "filter": false,
+    "alt": "Plutus DAO",
+    "summary": "Web3 application built with TypeScript, Next.js, React.js, Ethers.js, and Chakra UI",
+    "overview": "Working in parallel with the design director to make key product and design decisions throughout the lifecycle of the product, from pre-launch to release. Plutus is an Arbitrum-native governance aggregator aiming to maximize users' liquidity and rewards while simultaneously aggregating governance behind the PLS token. Plutus' objective is to become the de-facto Layer 2 governance blackhole for projects with veTokens. ",
+    "tech": [
+        "TypeScript",
+        "Web3.js", 
+        "Next.js", 
+        "Ethers.js", 
+        "Sentry", 
+        "React", 
+        "GraphQL", 
+        "Chakra UI",
+        "HTML",
+        "CSS", 
+        "Git", 
+        "GitHub Orgs", 
+        "Vercel"
+      ]
+    }, 
+  "Keeper AI": {
+    "name": "Keeper AI", 
+    "logo": "/keeper-logo.svg",
+    "url": "https://keeperai.com/",
+    "filter": true,
+    "alt": "Keeper AI",
+    "summary": "Enterprise level web application built with TypeScript, React.js, ",
+    "overview": "Keeper AI is a next generation HR tool used to show off the human side of potential hires. By consuming content from several APIs this enterprise level application allows candidates to use various media to show potential employers who they are at a deeper level.",
+    "tech": [
+        "TypeScript", 
+        "React.js", 
+        "HTML", 
+        "SCSS", 
+        "Bootstrap",
+        "Styled-Components", 
+        "Giphy API", 
+        "YouTube API",
+        "Google Search API", 
+        "Git", 
+        "GitHub", 
+        "Jenkins",
+        "Jest"
+      ]
+    },
+  "CUI Virtual Tour": {
+    "name": "CUI Virtual Tour", 
+    "logo": "/cui-logo.svg",
+    "url": "https://www.cui.edu/virtual-tour-ug",
+    "filter": false,
+    "alt": "CUI Virtual Tour Microsite",
+    "summary": "Virtual tour microsite for Concordia University of Irvine",
+    "overview": "Interactive virtual tour of the CUI campus built on the Leaflet.js library. This expansive microsite replaced the previous tour solution and has seen a traffic increase of over 25% since deployment.",
+    "tech": [
+        "JavaScript",
+        "AngularJS", 
+        "Leaflet.js", 
+        "HTML", 
+        "CSS",  
+        "Git", 
+        "BitBucket", 
+        "DotNetNuke CMS"
+      ]
+  },
+  "CUI Website": {
+    "name": "CUI Website", 
+    "logo": "/cui-logo.svg",
+    "url": "https://www.cui.edu",
+    "filter": false,
+    "alt": "CUI Website",
+    "summary": "Concordia University of Irvine's official website",
+    "overview": "Planning, analysis, design, implementation, testing, maintenance, and ownership of both CUI's website and internal applications. Working in a cross-functional team with designers, project managers, copywriters, and tech lead to identify, define, and deliver on client needs. I managed a team of 5 interns, delegating, coaching, and uplifting them in their role. Triaging, proiritization, and management of ticketed requests from faculty and staff.",
+    "tech": [
+        "JavaScript",
+        "AngularJS", 
+        "HTML", 
+        "CSS",  
+        "Git", 
+        "BitBucket", 
+        "DotNetNuke CMS",
+        "Zendesk",
+        "Salesforce",
+        "MailChimp",
+        "Remote Desktop Manager",
+        "G Suite"
+      ]
+    }
+  }
