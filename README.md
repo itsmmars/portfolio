@@ -4,9 +4,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 [filicett.dev](https://www.filicetti.dev)
 
-To run on your local env, clone the repo and then run the development server:
+To run on your local env, clone the repo, install necessary packages: and then run the development server:
 
 ```bash
+npm i
+# or
+yarn install
+# then
 npm run dev
 # or
 yarn dev
