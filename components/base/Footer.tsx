@@ -30,7 +30,7 @@ const mapLinks = () => {
       {links.map((l, i) => {
         return (
           <Link key={i} href={l.link} isExternal>
-            <Icon as={l.icon} />
+            <Icon w={10} h={10} as={l.icon} />
           </Link>
         )
       })}
@@ -41,7 +41,7 @@ const mapLinks = () => {
 export const Footer = () => {
   return (
     <VStack bottom={`0`} pb="2rem" w="100%" justifyContent="right" spacing="12px">
-      <Text>Let&apos;s Connect</Text>
+      <Text fontSize='2xl'>Let&apos;s Connect</Text>
       {mapLinks()}
     </VStack>
   )

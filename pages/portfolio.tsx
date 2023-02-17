@@ -93,39 +93,39 @@ const Portfolio: NextPage = () => {
                       <Image 
                         alt={g.alt} 
                         src={g.logo} 
-                        w={`200px`} 
-                        pt={`0.5rem`}
+                        w={`260px`} 
+                        pt='2'
                         m={`auto`}
                         className={g.filter ? `svg-filter` : ``}/>
                     </Link>
                   </CardHeader>
 
-                  <CardBody>
+                  <CardBody fontSize={`2xl`}>
                     <Stack 
                       divider={<StackDivider />} 
                       spacing='4'
                       >
                       <Box>
-                        <Heading size='xs' textTransform='uppercase'>
-                          Summary
+                        <Heading>
+                          SUMMARY
                         </Heading>
-                        <Text pt='2' fontSize='sm'>
+                        <Text pt='2' fontSize='xl'>
                           {g.summary}
                         </Text>
                       </Box>
                       <Box>
-                        <Heading size='xs' textTransform='uppercase'>
-                          Overview
+                        <Heading>
+                          OVERVIEW
                         </Heading>
-                        <Text pt='2' fontSize='sm'>
+                        <Text pt='2' fontSize='xl'>
                           {g.overview}
                         </Text>
                       </Box>
                       <Box>
-                        <Heading size='xs' textTransform='uppercase'>
-                          TECHNOLOGIES USED
+                        <Heading>
+                          TECH USED
                         </Heading>
-                        <Text pt='2' fontSize='sm'>
+                        <Text pt='2' fontSize='xl'>
                           {g.tech.join(`, `)}
                         </Text>
                       </Box>
