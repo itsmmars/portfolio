@@ -70,7 +70,15 @@ const Home: NextPage = () => {
       return () => clearInterval(timer)
     }, [])
   
-    return <Text textAlign={`center`} fontSize={[`1em`, `1.8em`]} letterSpacing={`0.33em`}>{roles[currentStringIndex]}</Text>
+    return ( 
+      <Text 
+        textAlign={`center`} 
+        fontSize={[`1.05em`, `1.8em`]} 
+        letterSpacing={`0.33em`}
+        textIndent={`0.33em`}>
+          {roles[currentStringIndex]}
+      </Text> 
+    )
   }
 
   return (
@@ -104,7 +112,7 @@ const Home: NextPage = () => {
                 >
                   <Box textAlign={`center`}>
                     <Text 
-                      fontSize={[`8em`, `16em`]}
+                      fontSize={[`9em`, `16em`]}
                       lineHeight={`0.5em`}
                       style={{ fontSmooth: `always`}}
                     >
@@ -113,7 +121,7 @@ const Home: NextPage = () => {
                     <Text 
                       letterSpacing={`0.5em`}
                       textIndent={`0.5em`}
-                      fontSize={[`1.825em`, `3.675em`]}
+                      fontSize={[`2em`, `3.675em`]}
                     >
                         FILICETTI
                     </Text>
