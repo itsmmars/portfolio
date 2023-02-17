@@ -1,6 +1,6 @@
 import { Spinner, Flex } from '@chakra-ui/react'
 
-const MSpinner = () => (
+const LoadingSpinner = () => (
   <Flex 
     h={`100vh`} 
     flexDir={`column`}
@@ -9,14 +9,13 @@ const MSpinner = () => (
     backgroundColor={`transparent`}
   >
     <Spinner
-      w={`8em`}
-      h={`8em`}
-      thickness={`2em`}
-      speed={`1.5s`}
-      emptyColor={`gray.100`}
+      thickness={`1em`}
+      speed={`1s`}
+      emptyColor={`gray.200`}
       color={`red`}
+      size={`xl`}
     />
   </Flex>
 )
 
-export default MSpinner
+export default LoadingSpinner

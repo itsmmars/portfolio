@@ -11,7 +11,7 @@ const withLoadingSpinner = (WrappedComponent: React.FC) => {
 
     return (
       <>
-        {true ? (
+        {isLoading ? (
           <MSpinner />
         ) : (
           <WrappedComponent />
