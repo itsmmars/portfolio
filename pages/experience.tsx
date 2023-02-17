@@ -16,41 +16,48 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  List,
+  ListIcon,
+  ListItem,
+  Icon,
 } from '@chakra-ui/react'
 import React from 'react'
 import NextLink from 'next/link'
 import Head from 'next/head'
-import gigsData from '../constants/gigs.json'
+import expData from '../constants/exp.json'
 import { NextPage } from 'next'
+import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
 import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
 
-interface GigProps {
+interface ExpProps {
   name: string
-  logo?: string
-  filter: boolean
-  alt: string
+  role: string
+  location: string
   url: string
+  client?: string
+  start: string
+  end: string
   summary: string
-  overview: string
-  tech: string[]
+  overview: string[]
 }
 
-const gigsArr = Object.values(gigsData)
+const expArr = Object.values(expData)
 
-const gigPropsArray: GigProps[] = gigsArr.map((gig) => {
+const ExpPropsArray: ExpProps[] = expArr.map((exp) => {
   return {
-    name: gig.name,
-    logo: gig.logo,
-    filter: gig.filter,
-    alt: gig.alt,
-    url: gig.url,
-    summary: gig.summary,
-    overview: gig.overview,
-    tech: gig.tech
+    name: exp.name,
+    role: exp.role,
+    location: exp.location,
+    url: exp.url,
+    client: exp.client,
+    start: exp.start,
+    end: exp.end,
+    summary: exp.summary,
+    overview: exp.overview
   }
 })
 
-const Portfolio: NextPage = () => {
+const Experience: NextPage = () => {
   return (
     <Layout hideNavBar={false}>
       <Head>
@@ -59,18 +66,27 @@ const Portfolio: NextPage = () => {
       </Head>
       <Flex m={`1rem`} mt={[`7rem`, `0rem`]} flexDir={`column`}>
       <Accordion defaultIndex={0}>
-        {gigPropsArray.map((g, i) => {
+        {ExpPropsArray.map((e, i) => {
           return (
             <AccordionItem key={i} backgroundColor={`rgba(255, 255, 255, 0.9)`}>
               <h2>
                 <AccordionButton>
                   <Box 
-                    fontSize={`2em`}
+                    fontSize={[`1.5em`, `2em`]}
                     as="span" 
                     flex='1' 
                     textAlign='left'
                     textTransform='uppercase'>
-                    {g.name}
+                    {e.name}
+                    <Link 
+                      isExternal
+                      as={NextLink} 
+                      href={e.url} 
+                      textDecoration={`none`}
+                      _hover={{ color: `rgba(0,0,0,0.7)` }}
+                      >
+                        <Icon ml='2' pt='2' as={FaExternalLinkAlt} />
+                    </Link>
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -83,51 +99,40 @@ const Portfolio: NextPage = () => {
                   mb={`1.5rem`}
                   backgroundColor={`rgba(255, 255, 255, 0.05)`}
                 >
-                  <CardHeader>
-                    <Link 
-                      isExternal
-                      as={NextLink} 
-                      href={g.url} 
-                      textDecoration={`none`}
-                      _hover={{ color: `rgba(0,0,0,0.7)` }}
-                      >
-                      <Image 
-                        alt={g.alt} 
-                        src={g.logo} 
-                        w={`260px`} 
-                        pt='2'
-                        m={`auto`}
-                        className={g.filter ? `svg-filter` : ``}/>
-                    </Link>
-                  </CardHeader>
-
-                  <CardBody fontSize={`2xl`}>
+                  <CardBody fontSize={[`lg`, `2xl`]}>
                     <Stack 
                       divider={<StackDivider />} 
                       spacing='4'
                       >
                       <Box>
-                        <Heading>
-                          SUMMARY
-                        </Heading>
-                        <Text pt='2' fontSize='xl'>
-                          {g.summary}
+                        <Text fontSize={`2xl`}>
+                          {e.role}
+                        </Text>
+                        <Text pt={[``, `2`]} fontSize={[`lg`, `2xl`]}>
+                          {e.start} - {e.end} | {e.location}
+                        </Text>
+                        <Text pt='4'  fontSize={[`lg`, `2xl`]}>
+                          {e.summary}
                         </Text>
                       </Box>
                       <Box>
-                        <Heading>
+                        <Text fontSize={`2xl`}>
                           OVERVIEW
-                        </Heading>
-                        <Text pt='2' fontSize='xl'>
-                          {g.overview}
                         </Text>
-                      </Box>
-                      <Box>
-                        <Heading>
-                          TECH USED
-                        </Heading>
                         <Text pt='2' fontSize='xl'>
-                          {g.tech.join(`, `)}
+                          <Text>
+                            {e.client ? e.client : ``}
+                          </Text>
+                          <List spacing={3}>
+                            {e.overview.map((o, i) => {
+                              return (
+                                <ListItem key={i}>
+                                  <ListIcon as={FaCheck} color='red' />
+                                  {o}
+                                </ListItem>
+                              )
+                            })}
+                          </List>
                         </Text>
                       </Box>
                     </Stack>
@@ -143,4 +148,4 @@ const Portfolio: NextPage = () => {
   )
 }
 
-export default withLoadingSpinner(Portfolio)
+export default withLoadingSpinner(Experience)

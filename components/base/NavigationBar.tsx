@@ -26,7 +26,7 @@ import {
   FiArrowUpRight, 
   FiMenu
 } from 'react-icons/fi'
-import { FaGithub, FaLinkedin, FaFolderOpen } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaFolderOpen, FaHistory } from 'react-icons/fa'
 import React from 'react'
 import NextLink from 'next/link'
 import ContactForm from './Contact'
@@ -38,11 +38,17 @@ export const NavigationBar = () => {
 
   const links: {name: string, external: boolean, link?: string, icon: IconType}[] = [ 
     { 
-      name: `Portfolio`, 
+      name: `Selected Works`, 
       external: false, 
       link: `/portfolio`,
       icon: FaFolderOpen
     }, 
+    { 
+      name: `Experience`, 
+      external: false, 
+      link: `/experience`,
+      icon: FaHistory
+    },
     { 
       name: `LinkedIn`, 
       external: true, 
@@ -62,18 +68,30 @@ export const NavigationBar = () => {
       <Link 
         key={i} 
         as={NextLink}
-        href={l.external ? l.link : `/${l.name.toLowerCase()}`}
+        href={l.link}
         isExternal={l.external}
         textDecoration={`none`}
         fontSize={`2xl`}
         >
-          {isMobile ? (
-            <Icon w={10} h={10} as={l.icon} />
-          ) : (
-            <Text whiteSpace="nowrap">
-              {l.name} {l.external ? <Icon as={FiArrowUpRight} /> : ``}
-            </Text>
-          )}
+          <Text whiteSpace="nowrap">
+            {l.name} {l.external ? <Icon as={FiArrowUpRight} /> : ``}
+          </Text>
+      </Link>
+      )
+    )
+  }
+
+  const mapMobileLinks = ()=> {
+    const externalLinks = links.filter(l => l.external)
+    return externalLinks.map((l, i) => (
+      <Link 
+        key={i} 
+        as={NextLink}
+        href={l.link}
+        textDecoration={`none`}
+        fontSize={`2xl`}
+        >
+          <Icon w={10} h={10} as={l.icon} />
       </Link>
       )
     )
@@ -116,7 +134,7 @@ export const NavigationBar = () => {
           display={{ base: 'block', md: 'none' }}
           backgroundColor={`transparent`}
         >
-          <Icon  w={10} h={10} as={FiMenu} />
+          <Icon w={10} h={10} as={FiMenu} />
         </Button>
         <Drawer 
           placement={`left`} 
@@ -169,7 +187,7 @@ export const NavigationBar = () => {
                             onClick={onClose}
                             _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
                           >
-                            <Text>Portfolio</Text>
+                            <Text>Selected Works</Text>
                           </Link>
                           <Link 
                             w={`100%`}
@@ -178,7 +196,7 @@ export const NavigationBar = () => {
                             textDecoration={`none`}
                             _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
                           >
-                            <Text>Download Resume</Text>
+                            <Text>Experience</Text>
                           </Link>
                         </VStack>
                       </AccordionPanel>
@@ -203,7 +221,7 @@ export const NavigationBar = () => {
                     </AccordionItem>
                   </Accordion>
                   <HStack pt={4} mt={2} spacing={8}>
-                    {mapLinks()}
+                    {mapMobileLinks()}
                   </HStack>
               </VStack>
             </DrawerBody>
