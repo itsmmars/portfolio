@@ -103,13 +103,13 @@ const Home: NextPage = () => {
                   alignItems={`center`}
                 >
                   <Box textAlign={`center`}>
-                    <Heading 
+                    <Text 
                       fontSize={[`8em`, `16em`]}
-                      lineHeight={`0.8em`}
+                      lineHeight={`0.5em`}
                       style={{ fontSmooth: `always`}}
                     >
                       mike
-                    </Heading>
+                    </Text>
                     <Text 
                       letterSpacing={`0.5em`}
                       textIndent={`0.5em`}
