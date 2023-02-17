@@ -107,6 +107,7 @@ const Home: NextPage = () => {
                       fontSize={[`8em`, `16em`]}
                       lineHeight={`0.8em`}
                       fontWeight={`700`}
+                      style={{ fontSmooth: `always`}}
                     >
                       mike
                     </Heading>
