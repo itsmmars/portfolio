@@ -70,7 +70,7 @@ const Home: NextPage = () => {
       return () => clearInterval(timer)
     }, [])
   
-    return <Text fontSize={[`1em`, `1.8em`]}>{roles[currentStringIndex]}</Text>
+    return <Text textAlign={`center`} fontSize={[`1em`, `1.8em`]} letterSpacing={`0.33em`}>{roles[currentStringIndex]}</Text>
   }
 
   return (
@@ -104,15 +104,16 @@ const Home: NextPage = () => {
                 >
                   <Box textAlign={`center`}>
                     <Heading 
-                      fontSize={[`6em`, `15em`]}
+                      fontSize={[`8em`, `16em`]}
                       lineHeight={`0.8em`}
+                      fontWeight={`700`}
                     >
                       mike
                     </Heading>
                     <Text 
                       letterSpacing={`0.5em`}
-                      fontSize={[`1.5em`, `3.675em`]}
-                      ml={`0.675em`}
+                      textIndent={`0.5em`}
+                      fontSize={[`1.825em`, `3.675em`]}
                     >
                         FILICETTI
                     </Text>
@@ -123,7 +124,7 @@ const Home: NextPage = () => {
                     >
                       <Text 
                         fontWeight={`700`} 
-                        fontSize={`xl`} 
+                        fontSize={[`1.3em`, `1.8em`]}
                         color={`red`}
                         m={`auto`}>
                         Crafting seamless UI/UX solutions to drive your business forward.
@@ -136,7 +137,7 @@ const Home: NextPage = () => {
             <ScaleFade in={hasScrolled} style={{ transition: `opacity 2000ms ease-in-out` }}>
               <VStack 
                 w={`100vw`}
-                mt={[`8em`, `20em`]}
+                mt={[`8em`, `16em`]}
                 mb={`5em`}
                 direction={`column`} 
                 spacing={[`0.5rem`, `2rem`]} 

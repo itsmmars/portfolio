@@ -14,15 +14,16 @@ function Dots(props: any) {
     <group rotation={[0, 0, Math.PI / 4]}>
       <Points 
         {...props}
-        ref={ref} 
+        frustumCulled={false}
         positions={sphere} 
         stride={3} 
-        frustumCulled={false}> 
+        ref={ref}> 
         <PointMaterial 
-          transparent color='red' 
-          size={0.025} 
           sizeAttenuation={true} 
-          depthWrite={false} />
+          depthWrite={false}
+          size={0.025} 
+          transparent 
+          color='red' />
       </Points>
     </group>
   )

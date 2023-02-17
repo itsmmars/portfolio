@@ -5,8 +5,8 @@ const theme = extendTheme({
     red: `#e30613`
   },
   fonts: {
-    heading: `'Comfortaa', sans-serif`,
-    body: `'Comfortaa', sans-serif`,
+    heading: `'League Spartan', sans-serif`,
+    body: `'League Spartan', sans-serif`,
 
   },
   styles: {
