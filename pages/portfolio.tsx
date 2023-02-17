@@ -21,6 +21,8 @@ import React from 'react'
 import NextLink from 'next/link'
 import Head from 'next/head'
 import gigsData from '../constants/gigs.json'
+import { NextPage } from 'next'
+import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
 
 interface GigProps {
   name: string
@@ -48,7 +50,7 @@ const gigPropsArray: GigProps[] = gigsArr.map((gig) => {
   }
 })
 
-export default function Portfolio() {
+const Portfolio: NextPage = () => {
   return (
     <Layout hideNavBar={false}>
       <Head>
@@ -139,3 +141,5 @@ export default function Portfolio() {
     </Layout>
   )
 }
+
+export default withLoadingSpinner(Portfolio)

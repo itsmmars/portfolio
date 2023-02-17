@@ -65,7 +65,7 @@ export const NavigationBar = () => {
         href={l.external ? l.link : `/${l.name.toLowerCase()}`}
         isExternal={l.external}
         textDecoration={`none`}
-        // _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+        fontSize={`2xl`}
         >
           {isMobile ? (
             <Icon w={10} h={10} as={l.icon} />
@@ -166,6 +166,7 @@ export const NavigationBar = () => {
                             as={NextLink} 
                             href={`/portfolio`} 
                             textDecoration={`none`}
+                            onClick={onClose}
                             _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
                           >
                             <Text>Portfolio</Text>
@@ -173,7 +174,7 @@ export const NavigationBar = () => {
                           <Link 
                             w={`100%`}
                             href={`/Mike Filicetti - 2023 Resume.pdf`}
-                            download={`Mike Filicetti - 2023 Resume`} 
+                            download={`Mike Filicetti - ${new Date().getFullYear()} Resume`} 
                             textDecoration={`none`}
                             _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
                           >
