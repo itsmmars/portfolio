@@ -8,9 +8,7 @@ import {
   Link,
   Image,
   Fade,
-  HStack,
   Box,
-  useMediaQuery
 } from '@chakra-ui/react'
 import Head from 'next/head'
 import NextLink from 'next/link'
@@ -59,7 +57,7 @@ const Home: NextPage = () => {
     }
   ]
 
-  const roles = [`SOFTWARE ENGINEER`, `PRODUCT MANAGER`, `UI/UX WIZARD`]
+  const roles = [`SOFTWARE ENGINEER`, `PROJECT MANAGER`, `UI/UX WIZARD`]
 
   const CycleRoles: React.FC = () => {
     const [currentStringIndex, setCurrentStringIndex] = useState(0)
@@ -72,10 +70,8 @@ const Home: NextPage = () => {
       return () => clearInterval(timer)
     }, [])
   
-    return <Text fontSize={[`xs`, `1.8em`]}>{roles[currentStringIndex]}</Text>
+    return <Text fontSize={[`1em`, `1.8em`]}>{roles[currentStringIndex]}</Text>
   }
-  
-  const [isMobile] = useMediaQuery('(max-width: 768px)')
 
   return (
     <>
@@ -96,69 +92,61 @@ const Home: NextPage = () => {
             m="auto"
             className='test'
           >
-            <Fade delay={0.25} in={true}>
+            <Fade delay={0.5} in={true} style={{ transition: `opacity 500ms ease-in-out`}}>
               <Flex justifyContent={`center`} flexDir={`column`}>
                 <Flex 
-                  mt={[`20rem`, `10em`]}
+                  h={`100vh`}
                   flexDir={`column`} 
                   w={[`300px`, `unset`]}
+                  textAlign={`center`}
+                  justifyContent={`center`}
+                  alignItems={`center`}
                 >
-                  <HStack>
-                    <Box>
-                      <Heading 
-                        fontSize={[`4.35em`, `10em`]} 
-                        ml={[`-7px`, `-14px`]} 
-                        lineHeight={`0.8em`}
-                        color={`red`}
-                        style={{ fontVariant: 'small-caps'}}
-                      >
-                        Mike
-                      </Heading>
+                  <Box textAlign={`center`}>
+                    <Heading 
+                      fontSize={[`6em`, `15em`]}
+                      lineHeight={`0.8em`}
+                    >
+                      mike
+                    </Heading>
+                    <Text 
+                      letterSpacing={`0.5em`}
+                      fontSize={[`1.5em`, `3.675em`]}
+                      ml={`0.675em`}
+                    >
+                        FILICETTI
+                    </Text>
+                    <CycleRoles />
+                    <Flex 
+                      mt={[`3rem`, `none`]} 
+                      w={[`300px`, `unset`]}
+                    >
                       <Text 
-                        letterSpacing={`0.5em`} 
-                        textTransform={`uppercase`}
-                        fontSize={[`initial`, `2.3em`]}
-                      >
-                          Filicetti
+                        fontWeight={`700`} 
+                        fontSize={`xl`} 
+                        color={`red`}
+                        m={`auto`}>
+                        Crafting seamless UI/UX solutions to drive your business forward.
                       </Text>
-                      <CycleRoles />
-                    </Box>
-                    <Box>
-                      <Image 
-                        src='/mike.jpg' 
-                        alt='mike'
-                        borderRadius={`50%`} />
-                    </Box>
-                  </HStack>
-                </Flex>
-                <Flex 
-                  mt={[`3rem`, `none`]} 
-                  w={[`300px`, `unset`]}
-                >
-                  <Text 
-                    fontWeight={`700`} 
-                    fontSize={`xl`} 
-                    color={`red`}
-                    m={`auto`}>
-                    Crafting seamless UI/UX solutions to drive your business forward.
-                  </Text>
+                    </Flex>
+                  </Box>
                 </Flex>
               </Flex>
             </Fade>
-            <ScaleFade in={hasScrolled} style={{ transition: `ease-in-out 2s` }}>
+            <ScaleFade in={hasScrolled} style={{ transition: `opacity 2000ms ease-in-out` }}>
               <VStack 
                 w={`100vw`}
-                mt={`20em`}
+                mt={[`8em`, `20em`]}
                 mb={`5em`}
                 direction={`column`} 
                 spacing={[`0.5rem`, `2rem`]} 
                 fontSize={[`l`, `xl`]} 
                 fontWeight={700}>
-                  <Heading size={`3xl`} style={{ fontVariant: `small-caps`}}>Clients</Heading>
+                  <Heading size={`3xl`}>clients</Heading>
                   {gigs.map((g, i) => (
                     <Link 
                       key={i}
-                      w={`50%`}
+                      w={[`60%`, `50%`]}
                       as={NextLink} 
                       href={g.url} 
                       isExternal={true}

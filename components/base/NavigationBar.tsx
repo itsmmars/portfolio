@@ -143,12 +143,17 @@ export const NavigationBar = () => {
               <VStack 
                 mb={[`1rem`, `0rem`]} 
                 justifyContent={`space-between`}
-                fontSize={`3xl`}>
+                fontSize={`2xl`}
+                textAlign='left'>
                   <Accordion w={`100%`} allowToggle>
                     <AccordionItem>
                       <h2>
                         <AccordionButton>
-                          <Box as="span" flex='1' textAlign='left'>
+                          <Box 
+                            flex='1' 
+                            textAlign='left'
+                            fontSize={`2xl`}
+                            >
                             See My Work
                           </Box>
                           <AccordionIcon />
@@ -157,6 +162,7 @@ export const NavigationBar = () => {
                       <AccordionPanel pb={4}>
                         <VStack>
                           <Link 
+                            w={`100%`}
                             as={NextLink} 
                             href={`/portfolio`} 
                             textDecoration={`none`}
@@ -165,6 +171,7 @@ export const NavigationBar = () => {
                             <Text>Portfolio</Text>
                           </Link>
                           <Link 
+                            w={`100%`}
                             href={`/Mike Filicetti - 2023 Resume.pdf`}
                             download={`Mike Filicetti - 2023 Resume`} 
                             textDecoration={`none`}
@@ -179,7 +186,11 @@ export const NavigationBar = () => {
                     <AccordionItem>
                       <h2>
                         <AccordionButton>
-                          <Box as="span" flex='1' textAlign='left'>
+                          <Box 
+                            flex='1' 
+                            textAlign='left'
+                            fontSize={`2xl`}
+                          >
                             Lets Connect
                           </Box>
                           <AccordionIcon />

@@ -59,10 +59,11 @@ export default function Portfolio() {
       <Accordion defaultIndex={0}>
         {gigPropsArray.map((g, i) => {
           return (
-            <AccordionItem key={i}>
+            <AccordionItem key={i} backgroundColor={`rgba(255, 255, 255, 0.9)`}>
               <h2>
                 <AccordionButton>
                   <Box 
+                    fontSize={`2em`}
                     as="span" 
                     flex='1' 
                     textAlign='left'
