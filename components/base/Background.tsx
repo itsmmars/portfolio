@@ -11,7 +11,7 @@ function Dots(props: any) {
     ref.current.rotation.y -= delta / 15
   })
   return (
-    <group rotation={[Math.PI / 5, Math.PI / 5, Math.PI / 5]}>
+    <group rotation={[0, 0, Math.PI / 4]}>
       <Points 
         {...props}
         ref={ref} 
