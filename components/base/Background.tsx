@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react'
-import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { inSphere } from 'maath/random'
 import { Points, PointMaterial } from '@react-three/drei'
 
-function Stars(props: any) {
+function Dots(props: any) {
   const ref = useRef<THREE.Mesh>(null!)
   const [sphere] = useState(() => inSphere(new Float32Array(5000), { radius: 5 }))
   useFrame((state, delta) => {
@@ -11,7 +11,7 @@ function Stars(props: any) {
     ref.current.rotation.y -= delta / 15
   })
   return (
-    <group rotation={[0, 0, Math.PI / 4]}>
+    <group rotation={[Math.PI / 5, Math.PI / 5, Math.PI / 5]}>
       <Points 
         {...props}
         ref={ref} 
@@ -19,7 +19,7 @@ function Stars(props: any) {
         stride={3} 
         frustumCulled={false}> 
         <PointMaterial 
-          transparent color="red" 
+          transparent color='red' 
           size={0.025} 
           sizeAttenuation={true} 
           depthWrite={false} />
@@ -40,7 +40,7 @@ export const Background = () => {
       width: '100%', 
       height: '100%'
     }}>
-      <Stars />
+      <Dots />
     </Canvas>
   )
 }
