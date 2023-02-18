@@ -112,7 +112,6 @@ export const NavigationBar = () => {
       color={`white`}
     >
       <Flex maxW={`96em`} w={`100%`} m={`auto`}>
-
         <Box 
           flexGrow={1} 
           w={[`unset`, `100%`]}
@@ -191,8 +190,7 @@ export const NavigationBar = () => {
                           </Link>
                           <Link 
                             w={`100%`}
-                            href={`/Mike Filicetti - 2023 Resume.pdf`}
-                            download={`Mike Filicetti - ${new Date().getFullYear()} Resume`} 
+                            href={`/experience`}
                             textDecoration={`none`}
                             _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
                           >

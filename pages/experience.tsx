@@ -65,84 +65,92 @@ const Experience: NextPage = () => {
         <meta name="description" content="Mike Filicetti: Portfolio Page" />
       </Head>
       <Flex m={`1rem`} mt={[`7rem`, `0rem`]} flexDir={`column`}>
-      <Accordion defaultIndex={0}>
-        {ExpPropsArray.map((e, i) => {
-          return (
-            <AccordionItem key={i} backgroundColor={`rgba(255, 255, 255, 0.9)`}>
-              <h2>
-                <AccordionButton>
-                  <Box 
-                    fontSize={[`1.5em`, `2em`]}
-                    as="span" 
-                    flex='1' 
-                    textAlign='left'
-                    textTransform='uppercase'>
-                    {e.name}
-                    <Link 
-                      isExternal
-                      as={NextLink} 
-                      href={e.url} 
-                      textDecoration={`none`}
-                      _hover={{ color: `rgba(0,0,0,0.7)` }}
-                      >
-                        <Icon ml='2' pt='2' as={FaExternalLinkAlt} />
-                    </Link>
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4}>
-                <Card 
-                  color={`black`}
-                  direction={{ base: 'column', sm: 'row' }}
-                  overflow='hidden'
-                  mb={`1.5rem`}
-                  backgroundColor={`rgba(255, 255, 255, 0.05)`}
-                >
-                  <CardBody fontSize={[`lg`, `2xl`]}>
-                    <Stack 
-                      divider={<StackDivider />} 
-                      spacing='4'
-                      >
-                      <Box>
-                        <Text fontSize={`2xl`}>
-                          {e.role}
-                        </Text>
-                        <Text pt={[``, `2`]} fontSize={[`lg`, `2xl`]}>
-                          {e.start} - {e.end} | {e.location}
-                        </Text>
-                        <Text pt='4'  fontSize={[`lg`, `2xl`]}>
-                          {e.summary}
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text fontSize={`2xl`}>
-                          OVERVIEW
-                        </Text>
-                        <Text pt='2' fontSize='xl'>
-                          <Text>
-                            {e.client ? e.client : ``}
+        <Accordion defaultIndex={0}>
+          {ExpPropsArray.map((e, i) => {
+            return (
+              <AccordionItem key={i} backgroundColor={`rgba(255, 255, 255, 0.9)`}>
+                <h2>
+                  <AccordionButton>
+                    <Box 
+                      fontSize={[`1.5em`, `2em`]}
+                      as="span" 
+                      flex='1' 
+                      textAlign='left'
+                      textTransform='uppercase'>
+                      {e.name}
+                      <Link 
+                        isExternal
+                        as={NextLink} 
+                        href={e.url} 
+                        textDecoration={`none`}
+                        >
+                          <Icon ml='2' pt='2' as={FaExternalLinkAlt} />
+                      </Link>
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  <Card 
+                    color={`black`}
+                    direction={{ base: 'column', sm: 'row' }}
+                    overflow='hidden'
+                    mb={`1.5rem`}
+                    backgroundColor={`rgba(255, 255, 255, 0.05)`}
+                  >
+                    <CardBody fontSize={[`lg`, `2xl`]}>
+                      <Stack 
+                        divider={<StackDivider />} 
+                        spacing='4'
+                        >
+                        <Box>
+                          <Text fontSize={`2xl`}>
+                            {e.role}
                           </Text>
-                          <List spacing={3}>
-                            {e.overview.map((o, i) => {
-                              return (
-                                <ListItem key={i}>
-                                  <ListIcon as={FaCheck} color='red' />
-                                  {o}
-                                </ListItem>
-                              )
-                            })}
-                          </List>
-                        </Text>
-                      </Box>
-                    </Stack>
-                  </CardBody>
-                </Card>
-              </AccordionPanel>
-            </AccordionItem>
-          )
-        })}
+                          <Text pt={[``, `2`]} fontSize={[`lg`, `2xl`]}>
+                            {e.start} - {e.end} | {e.location}
+                          </Text>
+                          <Text pt='4'  fontSize={[`lg`, `2xl`]}>
+                            {e.summary}
+                          </Text>
+                        </Box>
+                        <Box>
+                          <Text fontSize={`2xl`}>
+                            OVERVIEW
+                          </Text>
+                          <Text pt='2' fontSize='xl'>
+                            <Text>
+                              {e.client ? e.client : ``}
+                            </Text>
+                            <List spacing={3}>
+                              {e.overview.map((o, i) => {
+                                return (
+                                  <ListItem key={i}>
+                                    <ListIcon as={FaCheck} color='red' />
+                                    {o}
+                                  </ListItem>
+                                )
+                              })}
+                            </List>
+                          </Text>
+                        </Box>
+                      </Stack>
+                    </CardBody>
+                  </Card>
+                </AccordionPanel>
+              </AccordionItem>
+            )
+          })}
         </Accordion>
+        <Link 
+          w={`100%`}
+          href={`/Mike Filicetti - 2023 Resume.pdf`}
+          download={`Mike Filicetti - ${new Date().getFullYear()} Resume`} 
+          textDecoration={`none`}
+          _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
+        >
+          <Heading m={[`1rem`, `2rem`]} textAlign={`center`}>Download my Resume</Heading>
+        </Link>
       </Flex>
     </Layout>
   )
