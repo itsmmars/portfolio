@@ -21,7 +21,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <VStack h="100vh" w="100%">
           <NavigationBar />
           <Background />
-          <Box w={`100%`} flexGrow={1}>
+          <Box w={`100%`} maxW={`96em`} flexGrow={1}>
             {children}
           </Box>
           <Footer />

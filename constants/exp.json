@@ -1,0 +1,60 @@
+{
+  "Interesting Developments LLC": {
+    "name": "Interesting Developments LLC", 
+    "role": "Frontend Engineer & Technical Project Manager",
+    "location": "Remote",
+    "url": "https://www.filicetti.dev",
+    "client": "CONSULTANCY: PLUTUS DAO",
+    "start": "04/2022",
+    "end": "PRESENT",
+    "summary": "Crafting seamless UI/UX solutions to drive your business forward.",
+    "overview": [
+        "7th employee hired, working closely with the product team to bring the dApp from idea to release, allowing users to interact with our smart contracts.",
+        "Managed weekly stand ups meetings, applying agile methodologies (Scrum, Kanban) to define project scope, goals, and deliverables, as well as developing project schedules, budgets, and resource plans.",
+        "Identifying, analyzing, and managing project risks, such as delays, cost overruns, and scope creep, to ensure the project remains on track and on budget.",
+        "Deploying easily scalable and maintainable code daily, while participating in code reviews, project design, and regular retros post sprint.",
+        "Rapidly expanding the work of our founding developers by ticketing, implementing and refining features based on twitter and discord community feedback, resulting in over $5M market cap and $1 token value.",
+        "Communicating project status, progress, and issues to project stakeholders and the Plutus DAO online community.",
+        "Ensuring project deliverables meet the specified quality standards, and that quality control and assurance processes are in place to help lighten developer workload and manage tech debt."
+      ]
+    }, 
+  "Trusted Creative": {
+    "name": "Trusted Creative", 
+    "role": "Software Engineer & Product Manager",
+    "location": "Remote",
+    "url": "https://trustedcreative.com/",
+    "client": "",
+    "start": "02/2020",
+    "end": "04/2022",
+    "summary": "Initially contracted for a single product release, retained and promoted to SDE/PrM. Implemented agile development process, acting as product manager and leading a cross-functional team throughout the lifecycle of 9 different products for 2 of the company’s most strategic clients.",
+    "overview": [
+        "Key architectural decision maker managing database and server design and maintenance.",
+        "Lead research, presentation, and adoption of more modern frameworks, libraries, and platforms to meet business needs while enhancing performance and efficiency.",
+        "Translating client requirements into user stores, action items, tickets, and ultimately deliverables.",
+        "Managed Zendesk ticketing to triage and prioritize customer needs, personally clearing 3-5 tickets per week and delegating as needed.",
+        "Managed a team of 5 student interns through remote training, creation of robust documentation, and imbuing best practices at all levels.",
+        "Developed and integrated new project request system for school staff to understand project scope and avoid scope creep.",
+        "Created and maintained custom data analytics dashboards for stakeholders, as well as generating and presenting custom analytics upon request.",
+        "Planned, developed, implemented, and maintained custom Selenium automation to manage sensitive data reporting for university staff, donors, and alumni.",
+        "Google Analytics, Data Reporting, and JavaScript SME."
+      ]
+    },
+  "Keeper AI": {
+    "name": "Keeper AI", 
+    "role": "Lead Frontend Engineer",
+    "location": "Bellevue, WA (Hybrid)",
+    "url": "https://keeperai.com/",
+    "client": "",
+    "start": "06/2019",
+    "end": "02/2020",
+    "summary": "Lead Frontend Engineer and React.js subject matter expert. I worked on a cross-functional team with our founder, stakeholders, product manager, designers, UX researchers, and our sales team to make key product and UI/UX decisions throughout the product life cycle.",
+    "overview": [
+        "Agile development environment working with a product in flux to anticipate and meet client needs.",
+        "Developed features and updates on front and back-end based on internal and vendor usability data.",
+        "Translating usability research requirements into user stores, action items, tickets, and ultimately deliverables.",
+        "Managed intern on-site training, daily stand-ups, 1:1 mentorship, code review, and unit testing/integration.",
+        "Worked closely with backend team to ensure seamless integration with user interface",
+        "Primary frontend SME (React.js, TypeScript/JavaScript, SCSS)."
+      ]
+    }
+  }
