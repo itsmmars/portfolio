@@ -52,7 +52,6 @@ const Portfolio = () => {
       <Head>
         <title>Mike Filicetti: Portfolio</title>
         <meta name="description" content="Mike Filicetti: Portfolio Page" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Flex mt={[`5em`, `unset`]} justifyContent="center">
         <Box w="100%" maxW="1200px" p={6}>
@@ -101,14 +100,12 @@ const Portfolio = () => {
                   h="100%"
                   display={flippedIndex === i ? 'block' : 'none'}
                   bgColor="white"
-                  transform={flippedIndex === i ? 'rotateY(180deg)' : 'none'}
-                  transition="transform 0.6s"
                   boxShadow="md"
                   p={4}
                   borderRadius='20px'
                   overflow={'auto'}
                 >
-                  <Box transform={'rotateY(180deg)'}>
+                  <Box>
                     <Image
                       maxW={'240px'} 
                       mx={'auto'} 
