@@ -52,6 +52,7 @@ const Portfolio = () => {
       <Head>
         <title>Mike Filicetti: Portfolio</title>
         <meta name="description" content="Mike Filicetti: Portfolio Page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Flex mt={[`5em`, `unset`]} justifyContent="center">
         <Box w="100%" maxW="1200px" p={6}>
