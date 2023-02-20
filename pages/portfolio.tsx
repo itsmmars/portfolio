@@ -1,27 +1,15 @@
 import { Layout } from '../components/base/Layout'
 import { 
   Text,
-  Card,
-  CardHeader,
-  CardBody,
-  Heading,
-  Stack,
-  StackDivider,
-  Box,
   Flex,
   Image,
-  Link,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
+  Box,
+  SimpleGrid,
 } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 import NextLink from 'next/link'
 import Head from 'next/head'
 import gigsData from '../constants/gigs.json'
-import { NextPage } from 'next'
 import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
 
 interface GigProps {
@@ -30,6 +18,7 @@ interface GigProps {
   filter: boolean
   alt: string
   url: string
+  imgUrl: string
   summary: string
   overview: string
   tech: string[]
@@ -44,100 +33,100 @@ const gigPropsArray: GigProps[] = gigsArr.map((gig) => {
     filter: gig.filter,
     alt: gig.alt,
     url: gig.url,
+    imgUrl: gig.imgUrl,
     summary: gig.summary,
     overview: gig.overview,
     tech: gig.tech
   }
 })
 
-const Portfolio: NextPage = () => {
+const Portfolio = () => {
+  const [flippedIndex, setFlippedIndex] = useState(-1)
+
+  const flipCard = (index: number) => {
+    setFlippedIndex(flippedIndex === index ? -1 : index)
+  }
+
   return (
-    <Layout hideNavBar={false}>
+    <Layout>
       <Head>
         <title>Mike Filicetti: Portfolio</title>
         <meta name="description" content="Mike Filicetti: Portfolio Page" />
       </Head>
-      <Flex m={`1rem`} mt={[`7rem`, `0rem`]} flexDir={`column`}>
-      <Accordion defaultIndex={0}>
-        {gigPropsArray.map((g, i) => {
-          return (
-            <AccordionItem key={i} backgroundColor={`rgba(255, 255, 255, 0.9)`}>
-              <h2>
-                <AccordionButton>
-                  <Box 
-                    fontSize={`2em`}
-                    as="span" 
-                    flex='1' 
-                    textAlign='left'
-                    textTransform='uppercase'>
-                    {g.name}
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4}>
-                <Card 
-                  color={`black`}
-                  direction={{ base: 'column', sm: 'row' }}
-                  overflow='hidden'
-                  mb={`1.5rem`}
-                  backgroundColor={`rgba(255, 255, 255, 0.05)`}
+      <Flex mt={[`5em`, `unset`]} justifyContent="center">
+        <Box w="100%" maxW="1200px" p={6}>
+          <SimpleGrid columns={[1, 2]} spacing={6}>
+            {gigPropsArray.map((g, i) => (
+              <Box
+                key={i}
+                position="relative"
+                onClick={() => flipCard(i)}
+                cursor="pointer"
                 >
-                  <CardHeader>
-                    <Link 
-                      isExternal
-                      as={NextLink} 
-                      href={g.url} 
-                      textDecoration={`none`}
-                      _hover={{ color: `rgba(0,0,0,0.7)` }}
-                      >
-                      <Image 
-                        alt={g.alt} 
-                        src={g.logo} 
-                        w={`260px`} 
-                        pt='2'
-                        m={`auto`}
-                        className={g.filter ? `svg-filter` : ``}/>
-                    </Link>
-                  </CardHeader>
-
-                  <CardBody fontSize={`2xl`}>
-                    <Stack 
-                      divider={<StackDivider />} 
-                      spacing='4'
-                      >
-                      <Box>
-                        <Heading>
-                          SUMMARY
-                        </Heading>
-                        <Text pt='2' fontSize='xl'>
-                          {g.summary}
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Heading>
-                          OVERVIEW
-                        </Heading>
-                        <Text pt='2' fontSize='xl'>
-                          {g.overview}
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Heading>
-                          TECH USED
-                        </Heading>
-                        <Text pt='2' fontSize='xl'>
-                          {g.tech.join(`, `)}
-                        </Text>
-                      </Box>
-                    </Stack>
-                  </CardBody>
-                </Card>
-              </AccordionPanel>
-            </AccordionItem>
-          )
-        })}
-        </Accordion>
+                <Box position="relative">
+                  <Image
+                    src={g.imgUrl}
+                    alt={g.alt}
+                    objectFit="cover"
+                    boxSize="100%"
+                    borderRadius='20px'
+                  />
+                  <Box
+                    position="absolute"
+                    top="0"
+                    left="0"
+                    w="100%"
+                    h="100%"
+                    borderRadius='20px'
+                    bg="linear-gradient(to bottom, transparent 0%, black 100%)"
+                  >
+                    <Text
+                      mb={4}
+                      ml={8}
+                      fontSize={['2em', '4em']}
+                      position="absolute"
+                      color={'white'}
+                      bottom="0"
+                      left="0">
+                      {g.name}
+                    </Text>
+                  </Box>
+                </Box>
+                <Box
+                  position="absolute"
+                  top="0"
+                  left="0"
+                  w="100%"
+                  h="100%"
+                  display={flippedIndex === i ? 'block' : 'none'}
+                  bgColor="white"
+                  transform={flippedIndex === i ? 'rotateY(180deg)' : 'none'}
+                  transition="transform 0.6s"
+                  boxShadow="md"
+                  p={4}
+                  borderRadius='20px'
+                  overflow={'auto'}
+                >
+                  <Box transform={'rotateY(180deg)'}>
+                    <Image
+                      maxW={'240px'} 
+                      mx={'auto'} 
+                      my={4} 
+                      src={g.logo} 
+                      alt={g.alt}
+                      className={g.filter ? `svg-filter` : ``} />
+                    <Text fontSize="xl" fontWeight="bold">SUMMARY</Text>
+                    <Text my={4}>{g.summary}</Text>
+                    <Text fontSize="xl" fontWeight="bold">OVERVIEW</Text>
+                    <Text my={4}>{g.overview}</Text>
+                    <Text fontSize="xl" fontWeight="bold">TECH USED</Text>
+                    <Text my={4}>{g.tech.join(', ')}</Text>
+                  </Box>
+                </Box>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </Box>
       </Flex>
     </Layout>
   )

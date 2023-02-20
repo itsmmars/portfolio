@@ -7,18 +7,16 @@ import {
   ScaleFade,
   Link,
   Image,
-  Fade,
   Box,
 } from '@chakra-ui/react'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import useScroll from './api/useScroll'
 import { Layout } from '../components/base/Layout'
-import { NextPage } from 'next'
 import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
 import { useEffect, useState } from 'react'
 
-const Home: NextPage = () => {
+const Home = () => {
   const hasScrolled = useScroll()
 
   interface GigProps {
@@ -100,48 +98,46 @@ const Home: NextPage = () => {
             m="auto"
             className='test'
           >
-            <Fade delay={0.5} in={true} style={{ transition: `opacity 500ms ease-in-out`}}>
-              <Flex justifyContent={`center`} flexDir={`column`}>
-                <Flex 
-                  h={`100vh`}
-                  flexDir={`column`} 
-                  w={[`300px`, `unset`]}
-                  textAlign={`center`}
-                  justifyContent={`center`}
-                  alignItems={`center`}
-                >
-                  <Box textAlign={`center`}>
+            <Flex className='fade-in' justifyContent={`center`} flexDir={`column`}>
+              <Flex 
+                h={`100vh`}
+                flexDir={`column`} 
+                w={[`300px`, `unset`]}
+                textAlign={`center`}
+                justifyContent={`center`}
+                alignItems={`center`}
+              >
+                <Box textAlign={`center`}>
+                  <Text 
+                    fontSize={[`9em`, `16em`]}
+                    lineHeight={`0.5em`}
+                    style={{ fontSmooth: `always`}}
+                  >
+                    mike
+                  </Text>
+                  <Text 
+                    letterSpacing={`0.5em`}
+                    textIndent={`0.5em`}
+                    fontSize={[`2em`, `3.675em`]}
+                  >
+                      FILICETTI
+                  </Text>
+                  <CycleRoles />
+                  <Flex 
+                    mt={[`3rem`, `none`]} 
+                    w={[`300px`, `unset`]}
+                  >
                     <Text 
-                      fontSize={[`9em`, `16em`]}
-                      lineHeight={`0.5em`}
-                      style={{ fontSmooth: `always`}}
-                    >
-                      mike
+                      fontWeight={`700`} 
+                      fontSize={[`1.3em`, `1.8em`]}
+                      color={`red`}
+                      m={`auto`}>
+                      Crafting seamless UI/UX solutions to drive your business forward.
                     </Text>
-                    <Text 
-                      letterSpacing={`0.5em`}
-                      textIndent={`0.5em`}
-                      fontSize={[`2em`, `3.675em`]}
-                    >
-                        FILICETTI
-                    </Text>
-                    <CycleRoles />
-                    <Flex 
-                      mt={[`3rem`, `none`]} 
-                      w={[`300px`, `unset`]}
-                    >
-                      <Text 
-                        fontWeight={`700`} 
-                        fontSize={[`1.3em`, `1.8em`]}
-                        color={`red`}
-                        m={`auto`}>
-                        Crafting seamless UI/UX solutions to drive your business forward.
-                      </Text>
-                    </Flex>
-                  </Box>
-                </Flex>
+                  </Flex>
+                </Box>
               </Flex>
-            </Fade>
+            </Flex>
             <ScaleFade in={hasScrolled} style={{ transition: `opacity 2000ms ease-in-out` }}>
               <VStack 
                 w={`100vw`}
