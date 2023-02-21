@@ -2,14 +2,11 @@ import { Layout } from '../components/base/Layout'
 import { 
   Text,
   Card,
-  CardHeader,
   CardBody,
-  Heading,
   Stack,
   StackDivider,
   Box,
   Flex,
-  Image,
   Link,
   Accordion,
   AccordionItem,
@@ -25,7 +22,6 @@ import React from 'react'
 import NextLink from 'next/link'
 import Head from 'next/head'
 import expData from '../constants/exp.json'
-import { NextPage } from 'next'
 import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
 import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
 
@@ -57,7 +53,7 @@ const ExpPropsArray: ExpProps[] = expArr.map((exp) => {
   }
 })
 
-const Experience: NextPage = () => {
+const Experience = () => {
   return (
     <Layout hideNavBar={false}>
       <Head>
@@ -142,15 +138,6 @@ const Experience: NextPage = () => {
             )
           })}
         </Accordion>
-        <Link 
-          w={`100%`}
-          href={`/Mike Filicetti - 2023 Resume.pdf`}
-          download={`Mike Filicetti - ${new Date().getFullYear()} Resume`} 
-          textDecoration={`none`}
-          _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
-        >
-          <Heading m={[`1rem`, `2rem`]} textAlign={`center`}>Download my Resume</Heading>
-        </Link>
       </Flex>
     </Layout>
   )
