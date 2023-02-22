@@ -148,14 +148,20 @@ export const NavigationBar = () => {
             backgroundColor={`red.900`}
             color={`white`}>
             <DrawerHeader>
-              <Link 
-                as={NextLink} 
-                href={`/`} 
-                textAlign={`left`}
-                textDecoration={`none`}
-              >
-                <Heading size={`md`}>Mike Filicetti</Heading>
-              </Link>
+              <HStack>
+                <Link 
+                  as={NextLink} 
+                  href={`/`} 
+                  textAlign={`left`}
+                  textDecoration={`none`}
+                >
+                  <Heading size={`md`}>Mike Filicetti</Heading>
+                </Link>
+                <DarkModeToggle
+                  position={`relative`}
+                  top={0}
+                  right={0} />
+              </HStack>
               <DrawerCloseButton size={`xl`} pt={`0.25rem`} />
             </DrawerHeader>
             <DrawerBody>
@@ -235,7 +241,10 @@ export const NavigationBar = () => {
           alignItems="center"
           display={{ base: 'none', md: 'flex' }}>
           {mapLinks()}
-          <DarkModeToggle />
+          <DarkModeToggle
+            position={`fixed`}
+            top={4}
+            right={4} />
         </HStack>
       </Flex>
     </Flex>
