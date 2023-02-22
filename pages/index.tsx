@@ -145,7 +145,7 @@ const Home = () => {
                   {gigs.map((g, i) => (
                     <Link 
                       key={i}
-                      w={[`60%`, `50%`]}
+                      w={[`80%`, `50%`]}
                       as={NextLink} 
                       href={g.url} 
                       isExternal={true}
