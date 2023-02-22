@@ -23,7 +23,7 @@ function Dots(props: any) {
           depthWrite={false}
           size={0.025} 
           transparent 
-          color='red.900' />
+          color='red' />
       </Points>
     </group>
   )
