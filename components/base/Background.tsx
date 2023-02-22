@@ -39,6 +39,7 @@ export const Background = () => {
       left: 0, 
       zIndex: -1, 
       backgroundColor: bg, 
+      marginTop: '0px',
       filter: 'blur(3px)',
       width: '100%', 
       height: '100%'

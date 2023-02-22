@@ -6,7 +6,8 @@ import {
   HStack,
   Button,
   Fade,
-  Link
+  Link,
+  useColorModeValue
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 
@@ -33,7 +34,8 @@ export const MFCard = ({
   handleFlipCard,
   delay
 }: MFCardProps) => {
-
+  const bg = useColorModeValue('white', 'black')
+  const plutusLogo = useColorModeValue(`/logo_plutusdao.svg`, `/logo_plutusdao_alpha.svg`)
   return (
     <Fade in={true} delay={delay}>
       <Box
@@ -75,7 +77,7 @@ export const MFCard = ({
           w='100%'
           h='100%'
           display={flippedIndex === index ? 'block' : 'none'}
-          bgColor='white'
+          bgColor={bg}
           boxShadow='md'
           p={4}
           overflow={'auto'}
@@ -85,9 +87,9 @@ export const MFCard = ({
               maxW={'240px'} 
               mx={'auto'} 
               my={4} 
-              src={logo} 
+              src={name === 'PlutusDAO' ? plutusLogo : logo} 
               alt={alt}
-              className={filter ? `svg-filter` : ``} />
+              className={logo === '/logo_cui.svg' ? `svg-filter` : ``} />
             <HStack justifyContent={`space-between`}>
               <Text fontSize='xl' fontWeight='bold'>SUMMARY</Text>
               <Link 
