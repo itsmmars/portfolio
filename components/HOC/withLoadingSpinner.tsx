@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import MSpinner from '../base/MSpinner'
+import MSpinner from '../base/MFSpinner'
 
 const withLoadingSpinner = (WrappedComponent: React.FC) => {
   const WrappedWithLoadingSpinner: React.FC = () => {
