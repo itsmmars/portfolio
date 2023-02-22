@@ -32,7 +32,7 @@ const projPropsArray: ClientProps[] = projArr.map((gig) => {
 })
 
 const Portfolio = () => {
-  const [flippedIndex, setFlippedIndex] = useState(0)
+  const [flippedIndex, setFlippedIndex] = useState(-1)
 
   const flipCard = (index: number) => {
     setFlippedIndex(flippedIndex === index ? -1 : index)
@@ -45,7 +45,7 @@ const Portfolio = () => {
         <meta name="description" content="Mike Filicetti: Portfolio Page" />
       </Head>
       <Flex mt={[`5em`, `unset`]} justifyContent="center">
-        <Box w="100%" maxW="1200px" p={6}>
+        <Box w='100%' maxW='1200px' p={6}>
           <SimpleGrid columns={[1, 2]} spacing={6}>
             {projPropsArray.map((p, i) => (
               <MFCard 
@@ -61,7 +61,8 @@ const Portfolio = () => {
                 key={i}
                 flippedIndex={flippedIndex}
                 handleFlipCard={flipCard}
-                index={i} />
+                index={i}
+                delay={i/Math.PI} />
             ))}
           </SimpleGrid>
         </Box>
