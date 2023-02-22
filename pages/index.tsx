@@ -14,6 +14,7 @@ import {
   Link,
   Image,
   Box,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { ProjProps } from '../components/base/types'
 
@@ -23,14 +24,14 @@ const Home = () => {
   const gigs: ProjProps[] = [
     {
       name: `PlutusDAO`, 
-      logo: `/logo_plutusdao.svg`,
+      logo: useColorModeValue(`/logo_plutusdao.svg`, `/logo_plutusdao_alpha.svg`),
       url: `https://plutusdao.io`,
       alt: `Plutus DAO`
     }, 
     {
       name: `Keeper AI`, 
       logo: `/logo_keeperai.svg`,
-      filter: true,
+      filter: useColorModeValue(true, false),
       url: `https://keeperai.com/`,
       alt: ``
     },

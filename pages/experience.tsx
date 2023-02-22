@@ -17,6 +17,7 @@ import {
   ListIcon,
   ListItem,
   Icon,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import React from 'react'
 import NextLink from 'next/link'
@@ -24,18 +25,7 @@ import Head from 'next/head'
 import expData from '../constants/exp.json'
 import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
 import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
-
-interface ExpProps {
-  name: string
-  role: string
-  location: string
-  url: string
-  client?: string
-  start: string
-  end: string
-  summary: string
-  overview: string[]
-}
+import { ExpProps } from '../components/base/types'
 
 const expArr = Object.values(expData)
 
@@ -54,6 +44,7 @@ const ExpPropsArray: ExpProps[] = expArr.map((exp) => {
 })
 
 const Experience = () => {
+  const bg = useColorModeValue(`rgba(255, 255, 255, 0.9)`, `rgba(0, 0, 0, 0.9)`)
   return (
     <Layout hideNavBar={false}>
       <Head>
@@ -64,7 +55,7 @@ const Experience = () => {
         <Accordion defaultIndex={0}>
           {ExpPropsArray.map((e, i) => {
             return (
-              <AccordionItem key={i} backgroundColor={`rgba(255, 255, 255, 0.9)`}>
+              <AccordionItem key={i} backgroundColor={bg}>
                 <h2>
                   <AccordionButton>
                     <Box 
@@ -88,7 +79,6 @@ const Experience = () => {
                 </h2>
                 <AccordionPanel pb={4}>
                   <Card 
-                    color={`black`}
                     direction={{ base: 'column', sm: 'row' }}
                     overflow='hidden'
                     mb={`1.5rem`}
