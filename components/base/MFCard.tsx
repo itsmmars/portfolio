@@ -9,7 +9,10 @@ import {
 } from '@chakra-ui/react'
 
 interface MFCardProps extends ProjProps {
-  key: number
+  tech: string[]
+  index: number
+  flippedIndex: number;
+  handleFlipCard: (index: number) => void
 }
 
 export const MFCard = ({
@@ -22,19 +25,15 @@ export const MFCard = ({
   summary,
   overview,
   tech,
-  key
+  index,
+  flippedIndex,
+  handleFlipCard
 }: MFCardProps) => {
-  const [flippedIndex, setFlippedIndex] = useState(-1)
-
-  const flipCard = (index: number) => {
-    setFlippedIndex(flippedIndex === index ? -1 : index)
-  }
 
   return (
     <Box
-      key={key}
       position='relative'
-      onClick={() => flipCard(key)}
+      onClick={() => handleFlipCard(index)}
       cursor='pointer'
       >
       <Box position='relative'>
@@ -69,7 +68,7 @@ export const MFCard = ({
         left='0'
         w='100%'
         h='100%'
-        display={flippedIndex === key ? 'block' : 'none'}
+        display={flippedIndex === index ? 'block' : 'none'}
         bgColor='white'
         boxShadow='md'
         p={4}
@@ -85,7 +84,8 @@ export const MFCard = ({
             className={filter ? `svg-filter` : ``} />
           <HStack justifyContent={`space-between`}>
             <Text fontSize='xl' fontWeight='bold'>SUMMARY</Text>
-            <Button zIndex={`100000`}>Demo</Button>
+            {/* TODO: Demo button */}
+            {/* <Button zIndex={`100000`}>Demo</Button> */}
           </HStack>
           <Text my={4}>{summary}</Text>
           <Text fontSize='xl' fontWeight='bold'>OVERVIEW</Text>

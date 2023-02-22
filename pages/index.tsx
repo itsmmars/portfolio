@@ -1,3 +1,9 @@
+import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
+import { Layout } from '../components/base/Layout'
+import { useEffect, useState } from 'react'
+import useScroll from './api/useScroll'
+import NextLink from 'next/link'
+import Head from 'next/head'
 import { 
   Container, 
   Flex,
@@ -9,47 +15,34 @@ import {
   Image,
   Box,
 } from '@chakra-ui/react'
-import Head from 'next/head'
-import NextLink from 'next/link'
-import useScroll from './api/useScroll'
-import { Layout } from '../components/base/Layout'
-import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
-import { useEffect, useState } from 'react'
+import { ProjProps } from '../components/base/types'
 
 const Home = () => {
   const hasScrolled = useScroll()
 
-  interface GigProps {
-    name: string
-    logo?: string
-    filter?: boolean
-    alt: string
-    url: string
-  }
-
-  const gigs: GigProps[] = [
+  const gigs: ProjProps[] = [
     {
       name: `PlutusDAO`, 
-      logo: `/logo_ver1.svg`,
+      logo: `/logo_plutusdao.svg`,
       url: `https://plutusdao.io`,
       alt: `Plutus DAO`
     }, 
     {
       name: `Keeper AI`, 
-      logo: `/keeper-logo.svg`,
+      logo: `/logo_keeperai.svg`,
       filter: true,
       url: `https://keeperai.com/`,
       alt: ``
     },
     {
       name: `CUI`, 
-      logo: `/cui-logo.svg`,
+      logo: `/logo_cui.svg`,
       url: `https://www.cui.edu/`,
       alt: ``
     },
     {
       name: `Journeys Counseling`, 
-      logo: `/journeys-logo.png`,
+      logo: `/logo_journeys.png`,
       url: `https://journeyscounseling.com/`,
       alt: ``
     }
@@ -160,9 +153,11 @@ const Home = () => {
                     >
                       <Image 
                         my={`2em`}
+                        mx='auto'
                         alt={g.alt} 
                         src={g.logo} 
                         w={[`300px`, `100%`]} 
+                        maxW='24em'
                         className={g.filter ? `svg-filter` : ``}
                         />
                     </Link>
