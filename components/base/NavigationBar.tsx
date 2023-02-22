@@ -105,7 +105,7 @@ export const NavigationBar = () => {
       p={`20px`}
       direction={`row`} 
       align={`center`} 
-      backgroundColor={`red`}
+      backgroundColor={`red.900`}
       borderBottom={`default`}
       boxShadow={`2px 2px 10px 2px rgba(0, 0, 0, 0.15)`}
       zIndex={4}
@@ -116,14 +116,16 @@ export const NavigationBar = () => {
           flexGrow={1} 
           w={[`unset`, `100%`]}
         >
-          <Link 
-            as={NextLink} 
-            href={`/`} 
-            textDecoration={`none`}
-            _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
-          >
-            <Heading fontFamily={`'Changa One', sans-serif`} size={`2xl`}>M</Heading>
-          </Link>
+          <Heading fontFamily={`'Changa One', sans-serif`} size={`2xl`}>
+            <Link 
+              as={NextLink} 
+              href={`/`} 
+              textDecoration={`none`}
+              _hover={{ color: `red.100` }}
+            >
+              M
+            </Link>
+          </Heading>
         </Box>
         <Button 
           position={`absolute`} 
@@ -142,7 +144,7 @@ export const NavigationBar = () => {
           size={`full`}>
           <DrawerOverlay />
           <DrawerContent 
-            backgroundColor={`red`}
+            backgroundColor={`red.900`}
             color={`white`}>
             <DrawerHeader>
               <Link 
@@ -150,7 +152,6 @@ export const NavigationBar = () => {
                 href={`/`} 
                 textAlign={`left`}
                 textDecoration={`none`}
-                _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
               >
                 <Heading size={`md`}>Mike Filicetti</Heading>
               </Link>

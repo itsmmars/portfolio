@@ -123,7 +123,7 @@ const Home = () => {
                     <Text 
                       fontWeight={`700`} 
                       fontSize={[`1.3em`, `1.8em`]}
-                      color={`red`}
+                      color={`red.900`}
                       m={`auto`}>
                       Crafting seamless UI/UX solutions to drive your business forward.
                     </Text>

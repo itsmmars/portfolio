@@ -12,7 +12,7 @@ const LoadingSpinner = () => (
       thickness={`1em`}
       speed={`1s`}
       emptyColor={`gray.200`}
-      color={`red`}
+      color={`red.900`}
       size={`xl`}
     />
   </Flex>

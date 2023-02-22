@@ -175,7 +175,7 @@ export default function ContactForm() {
           mt={`1.5rem`}
           isLoading={isSubmitting}
           loadingText={`Sending`}
-          color={`red`}
+          color={`red.900`}
           fontWeight={`700`}
           backgroundColor={`rgba(255,255,255,0.9)`}
         >

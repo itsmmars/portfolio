@@ -1,13 +1,14 @@
 import { ProjProps } from './types'
-import { useState } from 'react'
 import { 
   Text,
   Image,
   Box,
   HStack,
   Button,
-  Fade
+  Fade,
+  Link
 } from '@chakra-ui/react'
+import NextLink from 'next/link'
 
 interface MFCardProps extends ProjProps {
   tech: string[]
@@ -39,6 +40,7 @@ export const MFCard = ({
         position='relative'
         onClick={() => handleFlipCard(index)}
         cursor='pointer'
+        boxShadow='md'
         >
         <Box position='relative'>
           <Image
@@ -88,8 +90,13 @@ export const MFCard = ({
               className={filter ? `svg-filter` : ``} />
             <HStack justifyContent={`space-between`}>
               <Text fontSize='xl' fontWeight='bold'>SUMMARY</Text>
-              {/* TODO: Demo button */}
-              {/* <Button zIndex={`100000`}>Demo</Button> */}
+              <Link 
+                isExternal
+                as={NextLink} 
+                href={url}
+                _hover={{ textDecoration: `none` }} >
+                  <Button variant='custom'>Check It Out</Button>                
+              </Link>
             </HStack>
             <Text my={4}>{summary}</Text>
             <Text fontSize='xl' fontWeight='bold'>OVERVIEW</Text>
