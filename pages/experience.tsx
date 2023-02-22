@@ -122,7 +122,7 @@ const Experience = () => {
                               {e.overview.map((o, i) => {
                                 return (
                                   <ListItem key={i}>
-                                    <ListIcon as={FaCheck} color='red' />
+                                    <ListIcon as={FaCheck} color='red.900' />
                                     {o}
                                   </ListItem>
                                 )
