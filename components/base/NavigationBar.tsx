@@ -31,6 +31,7 @@ import React from 'react'
 import NextLink from 'next/link'
 import ContactForm from './Contact'
 import { IconType } from 'react-icons'
+import { DarkModeToggle } from './DarkModeToggle'
 
 export const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -234,6 +235,7 @@ export const NavigationBar = () => {
           alignItems="center"
           display={{ base: 'none', md: 'flex' }}>
           {mapLinks()}
+          <DarkModeToggle />
         </HStack>
       </Flex>
     </Flex>

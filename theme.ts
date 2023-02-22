@@ -1,5 +1,4 @@
 import { extendTheme } from '@chakra-ui/react'
-import {  } from '@chakra-ui/theme-tools'
 
 const theme = extendTheme({
   colors: {
@@ -29,7 +28,6 @@ const theme = extendTheme({
         },
       },
       variants: {
-        // define your custom color scheme for the button
         custom: {
           bg: 'red.900',
           color: 'white',
@@ -47,7 +45,7 @@ const theme = extendTheme({
     global: {
       html: {
         height: `100%`,
-        overflowY: `scroll`, // always show scrollbars
+        overflowY: `scroll`,
         overflowX: `hidden`
       },
       heading: {
@@ -55,7 +53,10 @@ const theme = extendTheme({
       },
       body: {
         height: `100%`,
-        color: `black`,
+        color: {
+          default: `black`,
+          _dark: 'green'
+        },
         backgroundColor: `white`,
         marginRight: `0`,
         display: `flex`,

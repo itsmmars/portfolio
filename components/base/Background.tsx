@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { inSphere } from 'maath/random'
 import { Points, PointMaterial } from '@react-three/drei'
+import { useColorModeValue } from '@chakra-ui/react'
 
 function Dots(props: any) {
   const ref = useRef<THREE.Mesh>(null!)
@@ -30,13 +31,14 @@ function Dots(props: any) {
 }
 
 export const Background = () => {
+  const bg = useColorModeValue('white', 'black')
   return (
     <Canvas style={{ 
       position: 'fixed', 
       top: 0, 
       left: 0, 
       zIndex: -1, 
-      backgroundColor: 'white', 
+      backgroundColor: bg, 
       filter: 'blur(3px)',
       width: '100%', 
       height: '100%'
