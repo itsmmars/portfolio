@@ -7,7 +7,7 @@ interface ToggleProps {
   right: number
 }
 
-export const DarkModeToggle = ({
+export const MFDarkModeToggle = ({
   position,
   top,
   right

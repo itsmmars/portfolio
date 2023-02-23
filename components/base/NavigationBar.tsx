@@ -31,7 +31,7 @@ import React from 'react'
 import NextLink from 'next/link'
 import ContactForm from './Contact'
 import { IconType } from 'react-icons'
-import { DarkModeToggle } from './DarkModeToggle'
+import { MFDarkModeToggle } from './MFDarkModeToggle'
 
 export const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -89,6 +89,7 @@ export const NavigationBar = () => {
         key={i} 
         as={NextLink}
         href={l.link}
+        isExternal
         textDecoration={`none`}
         fontSize={`2xl`}
         >
@@ -157,7 +158,7 @@ export const NavigationBar = () => {
                 >
                   <Heading size={`md`}>Mike Filicetti</Heading>
                 </Link>
-                <DarkModeToggle
+                <MFDarkModeToggle
                   position={`relative`}
                   top={0}
                   right={0} />
@@ -241,7 +242,7 @@ export const NavigationBar = () => {
           alignItems="center"
           display={{ base: 'none', md: 'flex' }}>
           {mapLinks()}
-          <DarkModeToggle
+          <MFDarkModeToggle
             position={`fixed`}
             top={4}
             right={4} />

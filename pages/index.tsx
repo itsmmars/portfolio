@@ -1,9 +1,8 @@
 import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
 import { MFLinkLogo } from '../components/base/MFLinkLogo'
+import { MFTextCycle } from '../components/base/MFTextCycle'
 import { Layout } from '../components/base/Layout'
-import { useEffect, useState } from 'react'
 import useScroll from './api/useScroll'
-import NextLink from 'next/link'
 import Head from 'next/head'
 import { 
   Container, 
@@ -12,8 +11,6 @@ import {
   Text,
   Heading,
   ScaleFade,
-  Link,
-  Image,
   Box,
   useColorModeValue,
 } from '@chakra-ui/react'
@@ -50,29 +47,7 @@ const Home = () => {
     }
   ]
 
-  const roles = [`SOFTWARE ENGINEER`, `PROJECT MANAGER`, `UI/UX WIZARD`]
-
-  const CycleRoles: React.FC = () => {
-    const [currentStringIndex, setCurrentStringIndex] = useState(0)
-  
-    useEffect(() => {
-      const timer = setInterval(() => {
-        setCurrentStringIndex((prevIndex) => (prevIndex + 1) % roles.length)
-      }, 3000)
-  
-      return () => clearInterval(timer)
-    }, [])
-  
-    return ( 
-      <Text 
-        textAlign={`center`} 
-        fontSize={[`1.05em`, `1.8em`]} 
-        letterSpacing={`0.33em`}
-        textIndent={`0.33em`}>
-          {roles[currentStringIndex]}
-      </Text> 
-    )
-  }
+  const roles = [`SOFTWARE ENGINEER`, `PROJECT MANAGER`, `UI/UX STORYTELLER`]
 
   return (
     <>
@@ -117,7 +92,12 @@ const Home = () => {
                   >
                       FILICETTI
                   </Text>
-                  <CycleRoles />
+                  <MFTextCycle
+                    text={roles}
+                    textAlign={`center`} 
+                    fontSize={[`1.05em`, `1.8em`]} 
+                    letterSpacing={`0.33em`}
+                    textIndent={`0.33em`} />
                   <Flex 
                     mt={[`3rem`, `none`]} 
                     w={[`300px`, `unset`]}
