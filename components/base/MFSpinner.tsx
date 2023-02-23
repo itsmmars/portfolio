@@ -1,6 +1,6 @@
 import { Spinner, Flex } from '@chakra-ui/react'
 
-const LoadingSpinner = () => (
+const MFSpinner = () => (
   <Flex 
     h={`100vh`} 
     flexDir={`column`}
@@ -18,4 +18,4 @@ const LoadingSpinner = () => (
   </Flex>
 )
 
-export default LoadingSpinner
+export default MFSpinner

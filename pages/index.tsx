@@ -1,8 +1,8 @@
 import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
+import { MFLinkLogo } from '../components/base/MFLinkLogo'
+import { MFTextCycle } from '../components/base/MFTextCycle'
 import { Layout } from '../components/base/Layout'
-import { useEffect, useState } from 'react'
 import useScroll from './api/useScroll'
-import NextLink from 'next/link'
 import Head from 'next/head'
 import { 
   Container, 
@@ -11,8 +11,6 @@ import {
   Text,
   Heading,
   ScaleFade,
-  Link,
-  Image,
   Box,
   useColorModeValue,
 } from '@chakra-ui/react'
@@ -21,7 +19,7 @@ import { ProjProps } from '../components/base/types'
 const Home = () => {
   const hasScrolled = useScroll()
 
-  const gigs: ProjProps[] = [
+  const clients: ProjProps[] = [
     {
       name: `PlutusDAO`, 
       logo: useColorModeValue(`/logo_plutusdao.svg`, `/logo_plutusdao_alpha.svg`),
@@ -33,45 +31,23 @@ const Home = () => {
       logo: `/logo_keeperai.svg`,
       filter: useColorModeValue(true, false),
       url: `https://keeperai.com/`,
-      alt: ``
+      alt: `Keeper AI`
     },
     {
       name: `CUI`, 
       logo: `/logo_cui.svg`,
       url: `https://www.cui.edu/`,
-      alt: ``
+      alt: `Concordia University Irvine`
     },
     {
       name: `Journeys Counseling`, 
       logo: `/logo_journeys.png`,
       url: `https://journeyscounseling.com/`,
-      alt: ``
+      alt: `Journeys Counseling`
     }
   ]
 
-  const roles = [`SOFTWARE ENGINEER`, `PROJECT MANAGER`, `UI/UX WIZARD`]
-
-  const CycleRoles: React.FC = () => {
-    const [currentStringIndex, setCurrentStringIndex] = useState(0)
-  
-    useEffect(() => {
-      const timer = setInterval(() => {
-        setCurrentStringIndex((prevIndex) => (prevIndex + 1) % roles.length)
-      }, 3000)
-  
-      return () => clearInterval(timer)
-    }, [])
-  
-    return ( 
-      <Text 
-        textAlign={`center`} 
-        fontSize={[`1.05em`, `1.8em`]} 
-        letterSpacing={`0.33em`}
-        textIndent={`0.33em`}>
-          {roles[currentStringIndex]}
-      </Text> 
-    )
-  }
+  const roles = [`SOFTWARE ENGINEER`, `PROJECT MANAGER`, `UI/UX STORYTELLER`]
 
   return (
     <>
@@ -116,7 +92,12 @@ const Home = () => {
                   >
                       FILICETTI
                   </Text>
-                  <CycleRoles />
+                  <MFTextCycle
+                    text={roles}
+                    textAlign={`center`} 
+                    fontSize={[`1.05em`, `1.8em`]} 
+                    letterSpacing={`0.33em`}
+                    textIndent={`0.33em`} />
                   <Flex 
                     mt={[`3rem`, `none`]} 
                     w={[`300px`, `unset`]}
@@ -142,26 +123,14 @@ const Home = () => {
                 fontSize={[`l`, `xl`]} 
                 fontWeight={700}>
                   <Heading size={`3xl`}>clients</Heading>
-                  {gigs.map((g, i) => (
-                    <Link 
-                      key={i}
-                      w={[`80%`, `50%`]}
-                      as={NextLink} 
-                      href={g.url} 
-                      isExternal={true}
-                      textDecoration={`none`}
-                      _hover={{ color: `rgba(255, 255, 255, 0.7)` }}
-                    >
-                      <Image 
-                        my={`2em`}
-                        mx='auto'
-                        alt={g.alt} 
-                        src={g.logo} 
-                        w={[`300px`, `100%`]} 
-                        maxW='24em'
-                        className={g.filter ? `svg-filter` : ``}
-                        />
-                    </Link>
+                  {clients.map((c, i) => (
+                    <MFLinkLogo
+                      name=''
+                      url={c.url}
+                      alt={c.alt}
+                      logo={c.logo}
+                      filter={c.filter}
+                      key={i} />
                   ))}
               </VStack>
             </ScaleFade>

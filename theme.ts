@@ -1,10 +1,5 @@
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
-const config: ThemeConfig = {
-  initialColorMode: 'dark',
-  useSystemColorMode: true,
-}
-
 const theme = extendTheme({
   colors: {
     red: {
@@ -71,8 +66,7 @@ const theme = extendTheme({
         filter: `invert(93%) sepia(99%) saturate(1%) hue-rotate(222deg) brightness(106%) contrast(100%)`
       }
     }
-  },
-  config
+  }
 })
 
 export default theme
