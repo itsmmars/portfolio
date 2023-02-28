@@ -40,7 +40,7 @@ const mapLinks = () => {
 
 export const Footer = () => {
   return (
-    <VStack bottom={`0`} pb="2rem" w="100%" justifyContent="right" spacing="12px">
+    <VStack bottom={`0`} py="2rem" w="100%" justifyContent="right" spacing="12px">
       <Text fontSize='2xl'>Let&apos;s Connect</Text>
       {mapLinks()}
     </VStack>

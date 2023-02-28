@@ -92,5 +92,29 @@
         "Remote Desktop Manager",
         "G Suite"
       ]
-    }
+    },
+    "Journeys Counseling": {
+      "name": "Journeys Counseling", 
+      "logo": "/logo_journeys.svg",
+      "url": "https://journeyscounseling.com/",
+      "imgUrl": "/thumb_journeys.png",
+      "filter": false,
+      "alt": "Journeys Counseling",
+      "summary": "Journeys Counseling's commercial website",
+      "overview": " Managed onboarding, email server migration, SSO, and FTP setup for 50+ professionals within the organization. Responsible for database architecture and integration of a new “Therapist Finder,” feature. Built and deployed administrative dashboards for onboarding new staff.",
+      "tech": [
+          "MSSQL",
+          "C#", 
+          ".Net Core", 
+          "HTML",
+          "CSS",
+          "AngularJS",  
+          "Git", 
+          "BitBucket", 
+          "DotNetNuke CMS",
+          "Zendesk",
+          "Remote Desktop Manager",
+          "G Suite"
+        ]
+      }
   }

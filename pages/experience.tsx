@@ -48,8 +48,8 @@ const Experience = () => {
   return (
     <Layout hideNavBar={false}>
       <Head>
-        <title>Mike Filicetti: Portfolio</title>
-        <meta name="description" content="Mike Filicetti: Portfolio Page" />
+        <title>Mike Filicetti: Experience</title>
+        <meta name="description" content="Mike Filicetti: Experience" />
       </Head>
       <Flex m={`1rem`} mt={[`7rem`, `0rem`]} flexDir={`column`}>
         <Accordion defaultIndex={0}>
