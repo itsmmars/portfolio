@@ -1,6 +1,8 @@
 import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
-import { MFLinkLogo } from '../components/base/MFLinkLogo'
 import { MFTextCycle } from '../components/base/MFTextCycle'
+import { MFLinkLogo } from '../components/base/MFLinkLogo'
+import projectData from '../constants/projects.json'
+import { ProjProps } from '../components/base/types'
 import { Layout } from '../components/base/Layout'
 import useScroll from './api/useScroll'
 import Head from 'next/head'
@@ -14,38 +16,31 @@ import {
   Box,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { ProjProps } from '../components/base/types'
 
 const Home = () => {
   const hasScrolled = useScroll()
+  const plutusLogo = useColorModeValue(`/logo_plutusdao.svg`, `/logo_plutusdao_alpha.svg`)
+  const keeperFilter = useColorModeValue(true, false)
 
-  const clients: ProjProps[] = [
-    {
-      name: `PlutusDAO`, 
-      logo: useColorModeValue(`/logo_plutusdao.svg`, `/logo_plutusdao_alpha.svg`),
-      url: `https://plutusdao.io`,
-      alt: `Plutus DAO`
-    }, 
-    {
-      name: `Keeper AI`, 
-      logo: `/logo_keeperai.svg`,
-      filter: useColorModeValue(true, false),
-      url: `https://keeperai.com/`,
-      alt: `Keeper AI`
-    },
-    {
-      name: `CUI`, 
-      logo: `/logo_cui.svg`,
-      url: `https://www.cui.edu/`,
-      alt: `Concordia University Irvine`
-    },
-    {
-      name: `Journeys Counseling`, 
-      logo: `/logo_journeys.png`,
-      url: `https://journeyscounseling.com/`,
-      alt: `Journeys Counseling`
+  // TODO: Filter programatically, not by index
+  const rawProjArr = Object.values(projectData)
+  const projArr = rawProjArr.filter((v, i) =>{
+    return i !==3
+  })
+
+  const clients: ProjProps[] = projArr.map((proj) => {
+    let name = proj.name
+    let logo = name === '' ? plutusLogo : proj.logo
+    let filter = name === '' ? keeperFilter : proj.filter
+
+    return {
+      name: proj.name,
+      logo: logo,
+      filter: filter,
+      alt: proj.alt,
+      url: proj.url
     }
-  ]
+  })
 
   const roles = [`SOFTWARE ENGINEER`, `PROJECT MANAGER`, `UI/UX STORYTELLER`]
 
