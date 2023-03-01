@@ -14,6 +14,7 @@ import {
   Heading,
   ScaleFade,
   Box,
+  Image,
   useColorModeValue,
 } from '@chakra-ui/react'
 
@@ -21,22 +22,32 @@ const Home = () => {
   const hasScrolled = useScroll()
   const plutusLogo = useColorModeValue(`/logo_plutusdao.svg`, `/logo_plutusdao_alpha.svg`)
   const keeperFilter = useColorModeValue(true, false)
+  const cuiFilter = useColorModeValue(false, true)
 
   // TODO: Filter programatically, not by index
   const rawProjArr = Object.values(projectData)
   const projArr = rawProjArr.filter((v, i) =>{
-    return i !==3
+    return i !==2
   })
 
   const clients: ProjProps[] = projArr.map((proj) => {
-    let name = proj.name
-    let logo = name === '' ? plutusLogo : proj.logo
-    let filter = name === '' ? keeperFilter : proj.filter
+    let colorModeFilter = false
+    switch (proj.name) {
+      case 'Keeper AI':
+        colorModeFilter = keeperFilter
+        break
+      case 'CUI Website':
+        colorModeFilter = cuiFilter
+        break
+      default:
+        colorModeFilter = proj.filter
+        break
+    }
 
     return {
       name: proj.name,
-      logo: logo,
-      filter: filter,
+      logo: proj.name === 'PlutusDAO' ? plutusLogo : proj.logo,
+      filter: colorModeFilter,
       alt: proj.alt,
       url: proj.url
     }
@@ -111,7 +122,6 @@ const Home = () => {
             <ScaleFade in={hasScrolled} style={{ transition: `opacity 2000ms ease-in-out` }}>
               <VStack 
                 w={`100vw`}
-                mt={[`8em`, `16em`]}
                 mb={`5em`}
                 direction={`column`} 
                 spacing={[`0.5rem`, `2rem`]} 
