@@ -17,17 +17,17 @@ interface ClientProps extends ProjProps {
 
 const projArr = Object.values(projectData)
 
-const projPropsArray: ClientProps[] = projArr.map((gig) => {
+const projPropsArray: ClientProps[] = projArr.map((proj) => {
   return {
-    name: gig.name,
-    logo: gig.logo,
-    filter: gig.filter,
-    alt: gig.alt,
-    url: gig.url,
-    imgUrl: gig.imgUrl,
-    summary: gig.summary,
-    overview: gig.overview,
-    tech: gig.tech
+    name: proj.name,
+    logo: proj.logo,
+    filter: proj.filter,
+    alt: proj.alt,
+    url: proj.url,
+    imgUrl: proj.imgUrl,
+    summary: proj.summary,
+    overview: proj.overview,
+    tech: proj.tech
   }
 })
 
@@ -41,12 +41,14 @@ const Portfolio = () => {
   return (
     <Layout>
       <Head>
-        <title>Mike Filicetti: Portfolio</title>
-        <meta name="description" content="Mike Filicetti: Portfolio Page" />
+        <title>Mike Filicetti: Selected Works</title>
+        <meta name="description" content="Mike Filicetti: Selected Works" />
       </Head>
-      <Flex mt={[`5em`, `unset`]} justifyContent="center">
-        <Box w='100%' maxW='1200px' p={6}>
-          <SimpleGrid columns={[1, 2]} spacing={6}>
+      <Flex mt={[`4.7em`, `unset`]} justifyContent="center">
+        <Box w='100%' maxW='1200px' p={[0, 6]}>
+          <SimpleGrid 
+            columns={[1, 2]} 
+            spacing={[0, 6]}>
             {projPropsArray.map((p, i) => (
               <MFCard 
                 name={p.name}

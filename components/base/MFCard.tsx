@@ -35,7 +35,15 @@ export const MFCard = ({
   delay
 }: MFCardProps) => {
   const bg = useColorModeValue('white', 'black')
-  const plutusLogo = useColorModeValue(`/logo_plutusdao.svg`, `/logo_plutusdao_alpha.svg`)
+  const plutusLogo = useColorModeValue(
+    `/logo_plutusdao.svg`, 
+    `/logo_plutusdao_alpha.svg`
+    )
+  const gradient = useColorModeValue(
+    'linear-gradient(to bottom, transparent 50%, white 100%)', 
+    'linear-gradient(to bottom, transparent 50%, black 100%)'
+    )
+
   return (
     <Fade in={true} delay={delay}>
       <Box
@@ -57,13 +65,13 @@ export const MFCard = ({
             left='0'
             w='100%'
             h='100%'
-            bg='linear-gradient(to bottom, transparent 0%, black 100%)'
+            bg={gradient}
           >
             <Text
               ml={[4, 6]}
-              fontSize={['2em', '4em']}
+              fontSize={['2.5em', '3.675em']}
               position='absolute'
-              color={'white'}
+              color={useColorModeValue(`black`, `white`)}
               bottom='0'
               left='0'>
               {name}

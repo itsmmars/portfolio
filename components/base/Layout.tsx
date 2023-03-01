@@ -7,6 +7,7 @@ import {
 import { NavigationBar } from './NavigationBar'
 import { Background } from './Background'
 import { Footer } from './Footer'
+import MFTopButton from './MFTopButton'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -24,6 +25,7 @@ export const Layout = ({ children }: LayoutProps) => {
           <Box w={`100%`} maxW={`96em`} flexGrow={1}>
             {children}
           </Box>
+          <MFTopButton />
           <Footer />
         </VStack>
       </Container>
