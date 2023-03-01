@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { inSphere } from 'maath/random'
 import { Points, PointMaterial } from '@react-three/drei'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { useColorModeValue } from '@chakra-ui/react'
+import React, { useRef, useState } from 'react'
+import { inSphere } from 'maath/random'
 
 function Dots(props: any) {
   const ref = useRef<THREE.Mesh>(null!)
-  const [sphere] = useState(() => inSphere(new Float32Array(5000), { radius: 5 }))
+  const [sphere] = useState(() => inSphere(new Float32Array(10000), { radius: 8 }))
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10
     ref.current.rotation.y -= delta / 15
@@ -22,7 +22,7 @@ function Dots(props: any) {
         <PointMaterial 
           sizeAttenuation={true} 
           depthWrite={false}
-          size={0.025} 
+          size={0.033} 
           transparent 
           color='red' />
       </Points>

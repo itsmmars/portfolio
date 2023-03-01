@@ -38,11 +38,24 @@ export const MFCard = ({
   const plutusLogo = useColorModeValue(
     `/logo_plutusdao.svg`, 
     `/logo_plutusdao_alpha.svg`
-    )
+  )
   const gradient = useColorModeValue(
     'linear-gradient(to bottom, transparent 50%, white 100%)', 
     'linear-gradient(to bottom, transparent 50%, black 100%)'
-    )
+  )
+  const responsiveImg = () => {
+    switch (name) {
+      case ('CUI Website'):
+        return <Image pt={4} src={`/responsive-cui-virtual-tour.png`} alt={alt} />
+      case ('CUI Virtual Tour'):
+        return <Image pt={4} src={`/responsive-cui-virtual-tour.png`} alt={alt} />
+        case 'Journeys Counseling':
+        return <Image pt={4} src={`/responsive-journeys-counseling.png`} alt={alt} />
+      default:
+        break
+    }
+  }
+
 
   return (
     <Fade in={true} delay={delay}>
@@ -97,7 +110,11 @@ export const MFCard = ({
               my={4} 
               src={name === 'PlutusDAO' ? plutusLogo : logo} 
               alt={alt}
-              className={logo === '/logo_cui.svg' ? `svg-filter` : ``} />
+              className={useColorModeValue(
+                (filter ? `svg-filter` : ``), 
+                (filter ? `` : `svg-filter`)
+                )} 
+              />
             <HStack justifyContent={`space-between`}>
               <Text fontSize='xl' fontWeight='bold'>SUMMARY</Text>
               <Link 
@@ -113,6 +130,7 @@ export const MFCard = ({
             <Text my={4}>{overview}</Text>
             <Text fontSize='xl' fontWeight='bold'>TECH USED</Text>
             <Text my={4}>{tech.join(', ')}</Text>
+            {responsiveImg()}
           </Box>
         </Box>
       </Box>

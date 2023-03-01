@@ -44,7 +44,7 @@ const ExpPropsArray: ExpProps[] = expArr.map((exp) => {
 })
 
 const Experience = () => {
-  const bg = useColorModeValue(`rgba(255, 255, 255, 0.9)`, `rgba(0, 0, 0, 0.9)`)
+  const bg = useColorModeValue(`rgba(255, 255, 255, 0.99)`, `rgba(0, 0, 0, 0.9)`)
   return (
     <Layout hideNavBar={false}>
       <Head>
