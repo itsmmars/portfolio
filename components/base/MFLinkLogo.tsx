@@ -3,10 +3,9 @@ import NextLink from 'next/link'
 import { ProjProps } from './types'
 
 export const MFLinkLogo = ({
+  name,
   url,
-  alt,
-  logo,
-  filter
+  logo
 }:ProjProps) => {
   return (
     <Link 
@@ -19,12 +18,11 @@ export const MFLinkLogo = ({
       <Image 
         my={`2em`}
         mx='auto'
-        alt={alt} 
+        alt={name} 
         src={logo} 
         w={[`300px`, `100%`]} 
         minH='5em'
         maxW='24em'
-        className={filter ? `svg-filter` : ``}
         />
     </Link>
   )
