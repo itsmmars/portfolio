@@ -1,6 +1,6 @@
 import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
-import { MFTextCycle } from '../components/base/MFTextCycle'
 import { MFLinkLogo } from '../components/base/MFLinkLogo'
+import { MFHeroText } from '../components/base/MFHeroText'
 import projectData from '../constants/projects.json'
 import { ProjProps } from '../components/base/types'
 import { Layout } from '../components/base/Layout'
@@ -10,17 +10,17 @@ import {
   Container, 
   Flex,
   VStack,  
-  Text,
   Heading,
   ScaleFade,
-  Box,
-  useColorModeValue
+  useColorModeValue,
+  Fade
 } from '@chakra-ui/react'
 
 const Home = () => {
   const useLogo = (logo: string) => {
     return useColorModeValue(logo, logo.replace('.svg', '_alpha.svg'))
   }
+  
   const hasScrolled = useScroll()
 
   // TODO: Filter programatically, not by index
@@ -59,50 +59,10 @@ const Home = () => {
             m="auto"
             className='test'
           >
-            <Flex className='fade-in' justifyContent={`center`} flexDir={`column`}>
-              <Flex 
-                h={`100vh`}
-                flexDir={`column`} 
-                w={[`300px`, `unset`]}
-                textAlign={`center`}
-                justifyContent={`center`}
-                alignItems={`center`}
-              >
-                <Box textAlign={`center`}>
-                  <Text 
-                    fontSize={[`9em`, `16em`]}
-                    lineHeight={`0.5em`}
-                    style={{ fontSmooth: `always`}}
-                  >
-                    mike
-                  </Text>
-                  <Text 
-                    letterSpacing={`0.5em`}
-                    textIndent={`0.5em`}
-                    fontSize={[`2em`, `3.675em`]}
-                  >
-                      FILICETTI
-                  </Text>
-                  <MFTextCycle
-                    text={roles}
-                    textAlign={`center`} 
-                    fontSize={[`1.05em`, `1.8em`]} 
-                    letterSpacing={`0.33em`}
-                    textIndent={`0.33em`} />
-                  <Flex 
-                    mt={[`3rem`, `none`]} 
-                    w={[`300px`, `unset`]}
-                  >
-                    <Text 
-                      fontWeight={`700`} 
-                      fontSize={[`1.3em`, `1.8em`]}
-                      color={`red.900`}
-                      m={`auto`}>
-                      Crafting seamless UI/UX solutions to drive your business forward.
-                    </Text>
-                  </Flex>
-                </Box>
-              </Flex>
+            <Flex justifyContent={`center`} flexDir={`column`}>
+              <Fade in={true} delay={1/Math.PI} style={{ transition: `1.5s ease-in-out`}}>
+                <MFHeroText cycleText={roles} />
+              </Fade>
             </Flex>
             <ScaleFade in={hasScrolled} style={{ transition: `opacity 2000ms ease-in-out` }}>
               <VStack 
