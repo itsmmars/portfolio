@@ -41,8 +41,8 @@ export const Background = () => {
       backgroundColor: bg, 
       marginTop: '0px',
       filter: 'blur(3px)',
-      width: '100%', 
-      height: '100%'
+      width: '110%', 
+      height: '110%'
     }}>
       <Dots />
     </Canvas>

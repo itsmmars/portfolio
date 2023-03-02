@@ -14,15 +14,14 @@ import {
   Heading,
   ScaleFade,
   Box,
-  Image,
-  useColorModeValue,
+  useColorModeValue
 } from '@chakra-ui/react'
 
 const Home = () => {
+  const useLogo = (logo: string) => {
+    return useColorModeValue(logo, logo.replace('.svg', '_alpha.svg'))
+  }
   const hasScrolled = useScroll()
-  const plutusLogo = useColorModeValue(`/logo_plutusdao.svg`, `/logo_plutusdao_alpha.svg`)
-  const keeperFilter = useColorModeValue(true, false)
-  const cuiFilter = useColorModeValue(false, true)
 
   // TODO: Filter programatically, not by index
   const rawProjArr = Object.values(projectData)
@@ -31,23 +30,9 @@ const Home = () => {
   })
 
   const clients: ProjProps[] = projArr.map((proj) => {
-    let colorModeFilter = false
-    switch (proj.name) {
-      case 'Keeper AI':
-        colorModeFilter = keeperFilter
-        break
-      case 'CUI Website':
-        colorModeFilter = cuiFilter
-        break
-      default:
-        colorModeFilter = proj.filter
-        break
-    }
-
     return {
       name: proj.name,
-      logo: proj.name === 'PlutusDAO' ? plutusLogo : proj.logo,
-      filter: colorModeFilter,
+      logo: proj.logo,
       alt: proj.alt,
       url: proj.url
     }
@@ -130,11 +115,11 @@ const Home = () => {
                   <Heading size={`3xl`}>clients</Heading>
                   {clients.map((c, i) => (
                     <MFLinkLogo
-                      name=''
+                      name={c.name}
                       url={c.url}
-                      alt={c.alt}
-                      logo={c.logo}
-                      filter={c.filter}
+                      alt={c.name}
+                      // eslint-disable-next-line react-hooks/rules-of-hooks
+                      logo={useLogo(c.logo)}
                       key={i} />
                   ))}
               </VStack>

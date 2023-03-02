@@ -7,7 +7,14 @@ import {
   Button,
   Fade,
   Link,
-  useColorModeValue
+  useColorModeValue,
+  useDisclosure,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 
@@ -22,7 +29,6 @@ interface MFCardProps extends ProjProps {
 export const MFCard = ({
   name,
   logo,
-  filter,
   alt,
   url,
   imgUrl,
@@ -32,12 +38,14 @@ export const MFCard = ({
   index,
   flippedIndex,
   handleFlipCard,
-  delay
+  delay,
+  preview
 }: MFCardProps) => {
-  const bg = useColorModeValue('white', 'black')
-  const plutusLogo = useColorModeValue(
-    `/logo_plutusdao.svg`, 
-    `/logo_plutusdao_alpha.svg`
+  const bg = useColorModeValue('white', '#222222')
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const cmLogo = useColorModeValue(
+    logo, 
+    logo.replace('.svg', '_alpha.svg')
   )
   const gradient = useColorModeValue(
     'linear-gradient(to bottom, transparent 50%, white 100%)', 
@@ -55,8 +63,6 @@ export const MFCard = ({
         break
     }
   }
-
-
   return (
     <Fade in={true} delay={delay}>
       <Box
@@ -68,7 +74,7 @@ export const MFCard = ({
         <Box position='relative'>
           <Image
             src={imgUrl}
-            alt={alt}
+            alt={name}
             objectFit='cover'
             boxSize='100%'
           />
@@ -108,29 +114,43 @@ export const MFCard = ({
               maxW={'240px'} 
               mx={'auto'} 
               my={4} 
-              src={name === 'PlutusDAO' ? plutusLogo : logo} 
-              alt={alt}
-              className={useColorModeValue(
-                (filter ? `svg-filter` : ``), 
-                (filter ? `` : `svg-filter`)
-                )} 
+              src={name === 'Journeys Counseling' ? logo : cmLogo} 
+              alt={name}
               />
             <HStack justifyContent={`space-between`}>
               <Text fontSize='xl' fontWeight='bold'>SUMMARY</Text>
-              <Link 
-                isExternal
-                as={NextLink} 
-                href={url}
-                _hover={{ textDecoration: `none` }} >
-                  <Button variant='custom'>Check It Out</Button>                
-              </Link>
+              <HStack>
+                {preview ? (
+                  <Button onClick={onOpen} variant='custom'>
+                    Preview
+                  </Button>
+                ) : (
+                  ''
+                )}
+                <Link 
+                  isExternal
+                  as={NextLink} 
+                  href={url}
+                  _hover={{ textDecoration: `none` }} >
+                    <Button variant='custom'>Check It Out</Button>                
+                </Link>
+              </HStack>
             </HStack>
             <Text my={4}>{summary}</Text>
             <Text fontSize='xl' fontWeight='bold'>OVERVIEW</Text>
             <Text my={4}>{overview}</Text>
             <Text fontSize='xl' fontWeight='bold'>TECH USED</Text>
             <Text my={4}>{tech.join(', ')}</Text>
-            {responsiveImg()}
+            <Modal isOpen={isOpen} onClose={onClose} size='xl'>
+              <ModalOverlay />
+              <ModalContent backgroundColor={bg}>
+                <ModalHeader>{name} - Responsive Preview</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody pb={6}>
+                  {responsiveImg()}
+                </ModalBody>
+              </ModalContent>
+            </Modal>
           </Box>
         </Box>
       </Box>

@@ -1,7 +1,7 @@
 export interface ProjProps {
   name: string
   logo: string
-  filter?: boolean
+  preview?: boolean
   alt: string
   url: string
   imgUrl?: string
