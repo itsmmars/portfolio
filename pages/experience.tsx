@@ -1,31 +1,15 @@
+import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
+import { MFAccordionItem } from '../components/base/MFAccordionItem'
+import { ExpProps } from '../components/base/types'
 import { Layout } from '../components/base/Layout'
+import expData from '../constants/exp.json'
+import Head from 'next/head'
+import React from 'react'
 import { 
-  Text,
-  Card,
-  CardBody,
-  Stack,
-  StackDivider,
-  Box,
   Flex,
-  Link,
   Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  List,
-  ListIcon,
-  ListItem,
-  Icon,
   useColorModeValue,
 } from '@chakra-ui/react'
-import React from 'react'
-import NextLink from 'next/link'
-import Head from 'next/head'
-import expData from '../constants/exp.json'
-import { FaCheck, FaExternalLinkAlt } from 'react-icons/fa'
-import withLoadingSpinner from '../components/HOC/withLoadingSpinner'
-import { ExpProps } from '../components/base/types'
 
 const expArr = Object.values(expData)
 
@@ -44,7 +28,10 @@ const ExpPropsArray: ExpProps[] = expArr.map((exp) => {
 })
 
 const Experience = () => {
-  const bg = useColorModeValue(`rgba(255, 255, 255, 0.99)`, `rgba(0, 0, 0, 0.9)`)
+  const bg = useColorModeValue(
+    `rgba(255, 255, 255, 0.99)`,
+    `rgba(0, 0, 0, 0.9)`
+    )
   return (
     <Layout hideNavBar={false}>
       <Head>
@@ -55,77 +42,20 @@ const Experience = () => {
         <Accordion defaultIndex={0}>
           {ExpPropsArray.map((e, i) => {
             return (
-              <AccordionItem key={i} backgroundColor={bg}>
-                <h2>
-                  <AccordionButton>
-                    <Box 
-                      fontSize={[`1.5em`, `2em`]}
-                      as="span" 
-                      flex='1' 
-                      textAlign='left'
-                      textTransform='uppercase'>
-                      {e.name}
-                      <Link 
-                        isExternal
-                        as={NextLink} 
-                        href={e.url} 
-                        textDecoration={`none`}
-                        >
-                          <Icon ml='2' pt='2' as={FaExternalLinkAlt} />
-                      </Link>
-                    </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  <Card 
-                    direction={{ base: 'column', sm: 'row' }}
-                    overflow='hidden'
-                    mb={`1.5rem`}
-                    backgroundColor={`rgba(255, 255, 255, 0.05)`}
-                  >
-                    <CardBody fontSize={[`lg`, `2xl`]}>
-                      <Stack 
-                        divider={<StackDivider />} 
-                        spacing='4'
-                        >
-                        <Box>
-                          <Text fontSize={`2xl`}>
-                            {e.role}
-                          </Text>
-                          <Text pt={[``, `2`]} fontSize={[`lg`, `2xl`]}>
-                            {e.start} - {e.end} | {e.location}
-                          </Text>
-                          <Text pt='4'  fontSize={[`lg`, `2xl`]}>
-                            {e.summary}
-                          </Text>
-                        </Box>
-                        <Box>
-                          <Text fontSize={`2xl`}>
-                            OVERVIEW
-                          </Text>
-                          <Text pt='2' fontSize='xl'>
-                            <Text>
-                              {e.client ? e.client : ``}
-                            </Text>
-                            <List spacing={3}>
-                              {e.overview.map((o, i) => {
-                                return (
-                                  <ListItem key={i}>
-                                    <ListIcon as={FaCheck} color='red.900' />
-                                    {o}
-                                  </ListItem>
-                                )
-                              })}
-                            </List>
-                          </Text>
-                        </Box>
-                      </Stack>
-                    </CardBody>
-                  </Card>
-                </AccordionPanel>
-              </AccordionItem>
-            )
+              <MFAccordionItem
+                key={i}
+                name={e.name}
+                url={e.url}
+                role={e.role}
+                start={e.start}
+                end={e.end}
+                location={e.location}
+                summary={e.summary}
+                client={e.client}
+                overview={e.overview}
+                index={i}
+                bg={bg} />
+              )
           })}
         </Accordion>
       </Flex>
