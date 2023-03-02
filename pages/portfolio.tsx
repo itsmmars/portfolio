@@ -30,7 +30,7 @@ const projPropsArray: ClientProps[] = projArr.map((proj) => {
 
 const Portfolio = () => {
   const flip = useFlipCard()
-  console.log(flip)
+  
   return (
     <Layout>
       <Head>
@@ -40,7 +40,7 @@ const Portfolio = () => {
           content="Mike Filicetti: Selected Works" />
       </Head>
       <Flex 
-        mt={[`7em`, `unset`]} 
+        mt={[`4.5em`, `-0.5em`]} 
         justifyContent="center">
         <SimpleGrid 
           w='100%' 

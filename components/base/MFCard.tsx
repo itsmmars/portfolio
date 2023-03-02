@@ -88,11 +88,12 @@ export const MFCard = ({
           >
             <Text
               ml={[4, 6]}
-              fontSize={['2.5em', '3.675em']}
+              fontSize={['2.5em', '2.5em','3.675em']}
               position='absolute'
               color={useColorModeValue(`black`, `white`)}
               bottom='0'
-              left='0'>
+              left='0'
+              noOfLines={1}>
               {name}
             </Text>
           </Box>

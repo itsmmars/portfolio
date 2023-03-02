@@ -17,8 +17,7 @@ type LayoutProps = {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <Container minW={`99vw`} px={0} h={{base: `auto`, lg: `100%`}}>
-        {/* 2xl */}
+      <Container minW={`100%`} px={0} h={{base: `auto`, lg: `100%`}}>
         <VStack h="100vh" w="100%">
           <NavigationBar />
           <Background />
