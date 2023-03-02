@@ -10,10 +10,10 @@ export interface ProjProps {
 }
 
 export interface ExpProps {
-  name: string
+  name?: string
   role: string
   location: string
-  url: string
+  url?: string
   client?: string
   start: string
   end: string
