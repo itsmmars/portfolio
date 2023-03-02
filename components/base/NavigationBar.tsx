@@ -15,7 +15,6 @@ import {
   DrawerBody,
   DrawerCloseButton,
   VStack,
-  useMediaQuery,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -35,7 +34,6 @@ import { MFDarkModeToggle } from './MFDarkModeToggle'
 
 export const NavigationBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [isMobile] = useMediaQuery('(max-width: 768px)')
 
   const links: {name: string, external: boolean, link?: string, icon: IconType}[] = [ 
     { 
@@ -104,7 +102,7 @@ export const NavigationBar = () => {
       position={[`fixed`, `unset`]}
       as="nav"
       w={`100%`}
-      p={`20px`}
+      minH={`5em`}
       direction={`row`} 
       align={`center`} 
       backgroundColor={`red.900`}
@@ -113,12 +111,15 @@ export const NavigationBar = () => {
       zIndex={4}
       color={`white`}
     >
-      <Flex maxW={`96em`} w={`100%`} m={`auto`}>
+      <Flex maxW={`96em`} w={`100%`} m={`auto`} px={[`0em`, `2em`]}>
         <Box 
           flexGrow={1} 
           w={[`unset`, `100%`]}
         >
-          <Heading fontFamily={`'Changa One', sans-serif`} size={`2xl`}>
+          <Heading 
+            fontFamily={`'Changa One', sans-serif`} 
+            pl={[`0.675em`, `unset`]}
+            size={`2xl`}>
             <Link 
               as={NextLink} 
               href={`/`} 
@@ -158,10 +159,7 @@ export const NavigationBar = () => {
                 >
                   <Heading size={`md`}>Mike Filicetti</Heading>
                 </Link>
-                <MFDarkModeToggle
-                  position={`relative`}
-                  top={0}
-                  right={0} />
+                <MFDarkModeToggle />
               </HStack>
               <DrawerCloseButton size={`xl`} pt={`0.25rem`} />
             </DrawerHeader>
@@ -242,10 +240,7 @@ export const NavigationBar = () => {
           alignItems="center"
           display={{ base: 'none', md: 'flex' }}>
           {mapLinks()}
-          <MFDarkModeToggle
-            position={`fixed`}
-            top={4}
-            right={4} />
+          <MFDarkModeToggle />
         </HStack>
       </Flex>
     </Flex>
