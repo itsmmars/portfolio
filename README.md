@@ -17,11 +17,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 To run on your local env, clone the repo, install necessary packages: and then run the development server:
 
 `npm i`
-# or
+or
 `yarn install`
-# then
+then
 `npm run dev`
-# or
+or
 `yarn dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
