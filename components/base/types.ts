@@ -7,6 +7,7 @@ export interface ProjProps {
   imgUrl?: string
   summary?: string
   overview?: string
+  client?: string
 }
 
 export interface ExpProps {

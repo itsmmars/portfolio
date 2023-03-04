@@ -1,6 +1,7 @@
 {
   "PlutusDAO": {
     "name": "PlutusDAO", 
+    "client": "PlutusDAO",
     "logo": "/logo_plutusdao.svg",
     "url": "https://plutusdao.io",
     "imgUrl": "/thumb_plutusdao.png",
@@ -26,6 +27,7 @@
     }, 
   "Keeper AI": {
     "name": "Keeper AI", 
+    "client": "Keeper AI",
     "logo": "/logo_keeperai.svg",
     "url": "https://keeperai.com/",
     "imgUrl": "/thumb_keeperai.png",
@@ -51,6 +53,7 @@
     },
   "CUI Virtual Tour": {
     "name": "CUI Virtual Tour", 
+    "client": "CUI",
     "logo": "/logo_cui.svg",
     "url": "https://www.cui.edu/virtual-tour-ug",
     "imgUrl": "/thumb_cuivt.png",
@@ -71,6 +74,7 @@
   },
   "CUI Website": {
     "name": "CUI Website", 
+    "client": "CUI",
     "logo": "/logo_cui.svg",
     "url": "https://www.cui.edu",
     "imgUrl": "/thumb_cui.png",
@@ -95,6 +99,7 @@
     },
     "Journeys Counseling": {
       "name": "Journeys Counseling", 
+      "client": "Journeys Counseling",
       "logo": "/logo_journeys.png",
       "url": "https://journeyscounseling.com/",
       "imgUrl": "/thumb_journeys.png",
