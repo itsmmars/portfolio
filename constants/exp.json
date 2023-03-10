@@ -9,13 +9,12 @@
     "end": "PRESENT",
     "summary": "Crafting seamless UI/UX solutions to drive your business forward. Sole proprietorship.",
     "overview": [
-        "7th employee hired, working closely with the product team to bring the dApp from idea to release, allowing users to interact with our smart contracts.",
-        "Managed weekly stand ups meetings, applying agile methodologies (Scrum, Kanban) to define project scope, goals, and deliverables, as well as developing project schedules, budgets, and resource plans.",
+        "I was the 7th employee hired for my experience in leading teams and I brought the dApp from idea to product launch, allowing users to interact with our smart contracts, resulting in over $5M market cap and $1 peak token value.",
+        "Deploying and reviewing easily scalable and maintainable code daily in a face-paced, iterative environment.",
+        "Ensuring project deliverables meet the specified quality standards, and that quality control and assurance processes are in place to help lighten developer workload and manage tech debt.",
+        "Managed weekly stand up meetings by applying agile methodologies (Scrum, Kanban) and utilizing Notion to define project scope, goals, and deliverables, as well as developing project schedules, budgets, and resource plans.",
         "Identifying, analyzing, and managing project risks, such as delays, cost overruns, and scope creep, to ensure the project remains on track and on budget.",
-        "Deploying easily scalable and maintainable code daily, while participating in code reviews, project design, and regular retros post sprint.",
-        "Rapidly expanding the work of our founding developers by ticketing, implementing and refining features based on twitter and discord community feedback, resulting in over $5M market cap and $1 token value.",
-        "Communicating project status, progress, and issues to project stakeholders and the Plutus DAO online community.",
-        "Ensuring project deliverables meet the specified quality standards, and that quality control and assurance processes are in place to help lighten developer workload and manage tech debt."
+        "Communicating project status, progress, and issues to the 20,000+ members of the Plutus DAO online community."
       ]
     }, 
   "Trusted Creative": {
@@ -26,17 +25,17 @@
     "client": "",
     "start": "02/2020",
     "end": "04/2022",
-    "summary": "Initially contracted for a single product release, retained and promoted to SDE/PrM. Implemented agile development process, acting as product manager and leading a cross-functional team throughout the lifecycle of 9 different products for 2 of the company’s most strategic clients.",
+    "summary": "Contracted as a frontend engineer for a 6 month product release with our most revenue generating client, retained for an additional 1.5 years and promoted to SDE/PrM, taking on additional tasks with our second largest client.",
     "overview": [
-        "Key architectural decision maker managing database and server design and maintenance.",
-        "Lead research, presentation, and adoption of more modern frameworks, libraries, and platforms to meet business needs while enhancing performance and efficiency.",
-        "Translating client requirements into user stores, action items, tickets, and ultimately deliverables.",
+        "Key architectural decision maker managing databases and servers for 4000 active students and over 25,000 alumni.",
+        "Lead research, presentation, adoption, implementation, testing, and maintenance of Selenium automation, AngularJS, Entity Framework, and Action Grid to meet business needs while enhancing performance and efficiency.",
+        "Developed and integrated a new project request system for staff to understand project scope and avoid scope creep.",
+        "Created and maintained custom Google Analytics dashboard for stakeholders, as well as generating and presenting custom analytics reporting and visualization upon request.",
+        "Implemented agile development process, acting as product manager and leading a cross-functional team throughout the lifecycle of 7 different products for 2 of the company’s most strategic clients.",
+        "Translating client needs into requirements into user stories, action items, tickets, and ultimately deliverables.",
         "Managed Zendesk ticketing to triage and prioritize customer needs, personally clearing 3-5 tickets per week and delegating as needed.",
         "Managed a team of 5 student interns through remote training, creation of robust documentation, and imbuing best practices at all levels.",
-        "Developed and integrated new project request system for school staff to understand project scope and avoid scope creep.",
-        "Created and maintained custom data analytics dashboards for stakeholders, as well as generating and presenting custom analytics upon request.",
-        "Planned, developed, implemented, and maintained custom Selenium automation to manage sensitive data reporting for university staff, donors, and alumni.",
-        "Google Analytics, Data Reporting, and JavaScript SME."
+        "Google Analytics, Data Reporting/Visualization, and JavaScript SME."
       ]
     },
   "Keeper AI": {
@@ -49,9 +48,9 @@
     "end": "02/2020",
     "summary": "Lead Frontend Engineer and React.js subject matter expert. I worked on a cross-functional team with our founder, stakeholders, product manager, designers, UX researchers, and our sales team to make key product and UI/UX decisions throughout the product life cycle.",
     "overview": [
+        "I was hired as Lead Frontend Engineer and React.js subject matter expert within 3 months of entering the field.",
+        "I worked on a cross-functional team with our founder, stakeholders, product manager, designers, UX researchers, and our sales team to make key product and UX/UI decisions throughout the product life cycle.",
         "Agile development environment working with a product in flux to anticipate and meet client needs.",
-        "Developed features and updates on front and back-end based on internal and vendor usability data.",
-        "Translating usability research requirements into user stores, action items, tickets, and ultimately deliverables.",
         "Managed intern on-site training, daily stand-ups, 1:1 mentorship, code review, and unit testing/integration.",
         "Worked closely with backend team to ensure seamless integration with user interface",
         "Primary frontend SME (React.js, TypeScript/JavaScript, SCSS)."
