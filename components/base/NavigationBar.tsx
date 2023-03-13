@@ -25,7 +25,12 @@ import {
   FiArrowUpRight, 
   FiMenu
 } from 'react-icons/fi'
-import { FaGithub, FaLinkedin, FaFolderOpen, FaHistory } from 'react-icons/fa'
+import { 
+  FaGithub, 
+  FaLinkedin, 
+  FaFolderOpen, 
+  FaHistory
+} from 'react-icons/fa'
 import React from 'react'
 import NextLink from 'next/link'
 import ContactForm from './Contact'
@@ -62,39 +67,25 @@ export const NavigationBar = () => {
     }
   ]
 
-  const mapLinks = () => {
-    return links.map((l, i) => (
+  const mapLinks = (type: string) => {
+    const mobileLinks = links.filter(l => l.external)
+    return (type === 'mobile' ? mobileLinks : links).map((l, i) => (
       <Link 
         key={i} 
         as={NextLink}
         href={l.link}
         isExternal={l.external}
-        textDecoration={`none`}
-        fontSize={`2xl`}
+        textDecoration='none'
+        fontSize='2xl'
         >
-          <Text whiteSpace="nowrap">
-            {l.name} {l.external ? <Icon as={FiArrowUpRight} /> : ``}
-          </Text>
+          {type === 'mobile' 
+            ? <Icon w={10} h={10} as={l.icon} />
+            : <Text whiteSpace='nowrap'>
+                {l.name} {l.external ? <Icon as={FiArrowUpRight} /> : ``}
+                </Text>
+          }
       </Link>
-      )
-    )
-  }
-
-  const mapMobileLinks = ()=> {
-    const externalLinks = links.filter(l => l.external)
-    return externalLinks.map((l, i) => (
-      <Link 
-        key={i} 
-        as={NextLink}
-        href={l.link}
-        isExternal
-        textDecoration={`none`}
-        fontSize={`2xl`}
-        >
-          <Icon w={10} h={10} as={l.icon} />
-      </Link>
-      )
-    )
+    ))
   }
 
   return (
@@ -225,8 +216,8 @@ export const NavigationBar = () => {
                       </AccordionPanel>
                     </AccordionItem>
                   </Accordion>
-                  <HStack pt={4} mt={2} spacing={8}>
-                    {mapMobileLinks()}
+                  <HStack pt={6} mt={2} spacing={8}>
+                    {mapLinks('mobile')}
                   </HStack>
               </VStack>
             </DrawerBody>
@@ -239,7 +230,7 @@ export const NavigationBar = () => {
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
           display={{ base: 'none', md: 'flex' }}>
-          {mapLinks()}
+          {mapLinks('nav')}
           <MFDarkModeToggle />
         </HStack>
       </Flex>
